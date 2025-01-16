@@ -22,10 +22,10 @@
 
     <div class="header-social">
       <a data-wpel-link="external" href="" style="background: #D35151" target="_blank"
-        rel="nofollow external noopener noreferrer"><span class="fa">Bollywood
+        rel="nofollow external noopener noreferrer"><span class="fa">📩 Request
         </span></a>
       <a data-wpel-link="external" href="" style="background: #228B22" target="_blank"
-        rel="nofollow external noopener noreferrer"><span class="fa">AnimeFlix</span></a>
+        rel="nofollow external noopener noreferrer"><span class="fa">🔔 Notify</span></a>
     </div>
 
     <div class="primary-navigation" id="primary-navigation" role="navigation" itemscope=""
@@ -35,8 +35,7 @@
         <ul class="menu clearfix" id="menu-home">
           @foreach ($menus as $menu)
             <li
-              class="menu-item menu-item-type-taxonomy menu-item-object-category {{ $menu->sub_menus ? 'menu-item-has-children' : '' }} menu-item-246"
-              id="menu-item-246">
+              class="menu-item menu-item-type-taxonomy menu-item-object-category {{ $menu->sub_menus->count() ? 'menu-item-has-children' : '' }}">
               <a href="genre/index.htm">{{ $menu->menu_name }}</a>
               @if ($menu->sub_menus)
                 <ul class="sub-menu">
@@ -60,12 +59,12 @@
         <ul class="menu clearfix" id="menu-home-1">
           @foreach ($menus as $menu)
             <li
-              class="menu-item menu-item-type-taxonomy menu-item-object-category {{ $menu->sub_menus ? 'menu-item-has-children' : '' }} menu-item-246">
-              <a href="genre/index.htm">{{ $menu->menu_name }}</a>
+              class="menu-item menu-item-type-taxonomy menu-item-object-category {{ $menu->sub_menus->count() ? 'menu-item-has-children' : '' }}">
+              <a href="javascript:void(0)">{{ $menu->menu_name }}</a>
               @if ($menu->sub_menus)
                 <ul class="sub-menu">
                   @foreach ($menu->sub_menus as $sub_menu)
-                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-287">
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
                       <a href="genre/action/index.htm">👉{{ $sub_menu->menu_name }}</a>
                     </li>
                   @endforeach

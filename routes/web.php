@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TMDBController;
 use App\Http\Controllers\WelcomeController;
@@ -22,3 +23,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::prefix('admin')->name('admin.')->group(function(){
+  Route::get('/dashboard', [AdminController::class,'index'])->name('dashboard');
+});
