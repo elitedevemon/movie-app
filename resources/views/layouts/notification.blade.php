@@ -2,19 +2,18 @@
   <strong>
     <div class="alert">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
-      <b>
-        <font size="3px">Our New Domain is <a data-wpel-link="internal" href="index.htm">MoviesMod
-            –
-            MoviesFlix |
-            TheMoviesverse | TheMoviesMod | TopMovies | ModList.in</a> Bookmarks Now.
-        </font>
-      </b>
+      <h2>
+        <font size="5px">{{ $trailer->trailer_name }} </font>
+      </h2>
+      <iframe class="w-100" height="315" src="{{ $trailer->trailer_url }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </strong>
 </center>
 <style>
   .alert {
     border-radius: 5px;
+    margin-top: 10px;
   }
 
   .buttontg {

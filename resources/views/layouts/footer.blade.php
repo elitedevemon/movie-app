@@ -40,6 +40,7 @@
     .mtsnb .mtsnb-container {
       width: 1080px;
       font-size: 15px;
+      padding: 15px 34px 5px 34px;
     }
 
     .mtsnb a {
@@ -54,10 +55,12 @@
     <div class="mtsnb-container mtsnb-clearfix">
       <marquee class="mtsnb-button-type mtsnb-content" behavior="scroll" direction="rtl"
         onmouseover="this.stop()" onmouseout="this.start()">
-        <span class="mtsnb-text"><b>MoviesMod.Com</b> Now Our
-          Official
-          Domain. Search MoviesMod in Google to Find Us! </span><a class="mtsnb-button"
-          href="announcements/index.htm">Read More</a>
+        @foreach ($newses as $news)
+          <span class="mtsnb-text">
+            <b class="bg-primary rounded-circle p-2">{{ $news->news_category }}:</b> {{ $news->news }}
+          </span>
+        @endforeach
+        {{-- <a class="mtsnb-button" href="announcements/index.htm">Read More</a> --}}
       </marquee>
     </div>
     <a class="mtsnb-hide" href="#" style="background-color:#d35151;color:#ffffff;"><span>+</span></a>
@@ -330,4 +333,6 @@
 <script type="text/javascript"
   src="{{ asset('assets/wp-includes/js/tinymce/plugins/compat3x/plugin.min.js') }}" id="wp-tinymce-js">
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>

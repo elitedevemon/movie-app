@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    /** @use HasFactory<\Database\Factories\MenuFactory> */
-    use HasFactory;
+  /** @use HasFactory<\Database\Factories\MenuFactory> */
+  use HasFactory;
+
+  public function sub_menus(){
+    return $this->hasMany(SubMenu::class);
+  }
 }

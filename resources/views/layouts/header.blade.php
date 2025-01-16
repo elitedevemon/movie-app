@@ -53,7 +53,6 @@
 <!-- / Yoast SEO Premium plugin. -->
 
 <link href='//stats.wp.com' rel='dns-prefetch'>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link id='buttons-css' type='text/css' href='{{ asset('assets/wp-includes/css/buttons.min.css') }}'
   rel='stylesheet' media='all'>
 <link id='dashicons-css' type='text/css' href='{{ asset('assets/wp-includes/css/dashicons.min.css') }}'
@@ -157,3 +156,5 @@
 @include('layouts.partials.wp-custom-css')
 <!--custom-css-2-->
 @include('layouts.partials.custom-css-2')
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
