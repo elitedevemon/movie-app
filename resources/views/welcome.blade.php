@@ -13,7 +13,7 @@
               <img class="card-img-top" src="{{ asset('assets/wp-content/uploads/Screenshot_2.png') }}"
                 alt="...">
               <div class="overlay d-flex align-items-center justify-content-center">
-                <img style="width: 75px; height: 15px;" src="{{ asset('assets/images/video-play-button.png') }}" alt="">
+                <img style="width: 75px; height: 15px;" src="{{ asset('assets/images/video-play-button.png') }}" alt=""> 
               </div>
             </div>
             <div class="card-body p-2">
