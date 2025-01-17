@@ -10,7 +10,7 @@
       @include('layouts.main-menu')
       <div class="home-h1" id="page">
         @include('layouts.categories')
-        @include('layouts.notification')
+        @include('layouts.trailer')
 
         <!-- main content -->
         @yield('main-content')

@@ -13,14 +13,6 @@
           <span class="menu-text">DASHBOARD</span>
         </a>
       </div>
-      <div class="menu-item">
-        <a class="menu-link" href="analytics.html">
-          <span class="menu-icon">
-            <iconify-icon icon="ph:chart-bar-duotone"></iconify-icon>
-          </span>
-          <span class="menu-text">ANALYTICS</span>
-        </a>
-      </div>
       <div class="menu-item has-sub">
         <a class="menu-link" href="#">
           <span class="menu-icon">
@@ -47,47 +39,36 @@
           </div>
         </div>
       </div>
-      <div class="menu-header">UXUI COMPONENTS</div>
-      <div class="menu-item">
-        <a class="menu-link" href="widgets.html">
-          <span class="menu-icon">
-            <iconify-icon icon="ph:stack-duotone"></iconify-icon>
-          </span>
-          <span class="menu-text">WIDGETS</span>
-        </a>
-      </div>
+
+      <!-- frontend controller -->
+      <div class="menu-header">FRONTEND CONTROLLER</div>
       <div class="menu-item has-sub">
         <a class="menu-link" href="javascript:;">
           <div class="menu-icon">
-            <iconify-icon icon="ph:handbag-simple-duotone"></iconify-icon>
+            <iconify-icon icon="ph:article"></iconify-icon>
           </div>
-          <div class="menu-text d-flex align-items-center">POS SYSTEM</div>
+          <div class="menu-text d-flex align-items-center">MENU</div>
           <span class="menu-caret"><b class="caret"></b></span>
         </a>
         <div class="menu-submenu">
           <div class="menu-item">
             <a class="menu-link" href="pos_customer_order.html" target="_blank">
-              <div class="menu-text">CUSTOMER ORDER</div>
+              <div class="menu-text">MAIN MENU LIST</div>
             </a>
           </div>
           <div class="menu-item">
             <a class="menu-link" href="pos_kitchen_order.html" target="_blank">
-              <div class="menu-text">KITCHEN ORDER</div>
+              <div class="menu-text">CREATE MAIN MENU</div>
             </a>
           </div>
           <div class="menu-item">
-            <a class="menu-link" href="pos_counter_checkout.html" target="_blank">
-              <div class="menu-text">COUNTER CHECKOUT</div>
+            <a class="menu-link" href="pos_customer_order.html" target="_blank">
+              <div class="menu-text">SUB MENU LIST</div>
             </a>
           </div>
           <div class="menu-item">
-            <a class="menu-link" href="pos_table_booking.html" target="_blank">
-              <div class="menu-text">TABLE BOOKING</div>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="pos_menu_stock.html" target="_blank">
-              <div class="menu-text">MENU STOCK</div>
+            <a class="menu-link" href="pos_kitchen_order.html" target="_blank">
+              <div class="menu-text">CREATE SUB MENU</div>
             </a>
           </div>
         </div>
@@ -95,45 +76,20 @@
       <div class="menu-item has-sub">
         <a class="menu-link" href="#">
           <span class="menu-icon">
-            <iconify-icon icon="ph:game-controller-duotone"></iconify-icon>
+            <iconify-icon icon="material-symbols:category-outline-rounded"></iconify-icon>
           </span>
-          <span class="menu-text">UI KITS</span>
+          <span class="menu-text">CATEGORIES</span>
           <span class="menu-caret"><b class="caret"></b></span>
         </a>
         <div class="menu-submenu">
           <div class="menu-item">
             <a class="menu-link" href="ui_bootstrap.html">
-              <span class="menu-text">BOOTSTRAP</span>
+              <span class="menu-text">CATEGORY LIST</span>
             </a>
           </div>
           <div class="menu-item">
             <a class="menu-link" href="ui_buttons.html">
-              <span class="menu-text">BUTTONS</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="ui_card.html">
-              <span class="menu-text">CARD</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="ui_icons.html">
-              <span class="menu-text">ICONS</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="ui_modal_notification.html">
-              <span class="menu-text">MODAL & NOTIFICATION</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="ui_typography.html">
-              <span class="menu-text">TYPOGRAPHY</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="ui_tabs_accordions.html">
-              <span class="menu-text">TABS & ACCORDIONS</span>
+              <span class="menu-text">CREATE CATEGORY</span>
             </a>
           </div>
         </div>
@@ -141,28 +97,66 @@
       <div class="menu-item has-sub">
         <a class="menu-link" href="#">
           <span class="menu-icon">
-            <iconify-icon icon="ph:pencil-simple-duotone"></iconify-icon>
+            <iconify-icon icon="material-symbols:trail-length-medium-outline"></iconify-icon>
           </span>
-          <span class="menu-text">FORMS</span>
+          <span class="menu-text">TRAILER</span>
           <span class="menu-caret"><b class="caret"></b></span>
         </a>
         <div class="menu-submenu">
           <div class="menu-item">
             <a class="menu-link" href="form_elements.html">
-              <span class="menu-text">FORM ELEMENTS</span>
+              <span class="menu-text">TRAILER LIST</span>
             </a>
           </div>
           <div class="menu-item">
             <a class="menu-link" href="form_plugins.html">
-              <span class="menu-text">FORM PLUGINS</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="form_wizards.html">
-              <span class="menu-text">WIZARDS</span>
+              <span class="menu-text">ADD NEW TRAILER</span>
             </a>
           </div>
         </div>
+      </div>
+
+      <!-- frontend components -->
+      <div class="menu-header">FRONTEND COMPONENTS</div>
+      <div class="menu-item">
+        <a class="menu-link" href="map.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:preview"></iconify-icon>
+          </span>
+          <span class="menu-text">MOST VIEWED LIST</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="map.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:preview"></iconify-icon>
+          </span>
+          <span class="menu-text">TOP RATED LIST</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="map.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:arrow-upload-ready"></iconify-icon>
+          </span>
+          <span class="menu-text">LATEST UPLOAD LIST</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="map.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:trending-up-rounded"></iconify-icon>
+          </span>
+          <span class="menu-text">TRENDING LIST</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="map.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:trending-up-rounded"></iconify-icon>
+          </span>
+          <span class="menu-text">UPCOMING LIST</span>
+        </a>
       </div>
       <div class="menu-item has-sub">
         <a class="menu-link" href="#">
@@ -346,6 +340,61 @@
           </div>
         </div>
       </div>
+
+      <!-- menu items list -->
+      <div class="menu-header">MENU ITEMS LIST</div>
+      @foreach ($menus as $menu)
+        @if ($menu->sub_menus->count())
+          <div class="menu-item has-sub">
+            <a class="menu-link" href="#">
+              <span class="menu-icon">
+                <iconify-icon icon="ph:arrow-bend-double-up-right-thin"></iconify-icon>
+              </span>
+              <span class="menu-text">{{ ucwords($menu->menu_name) }}</span>
+              <span class="menu-caret"><b class="caret"></b></span>
+            </a>
+            <div class="menu-submenu">
+              @foreach ($menu->sub_menus as $sub_menu)
+                <div class="menu-item">
+                  <a class="menu-link" href="ui_bootstrap.html">
+                    <span class="menu-text">{{ ucwords($sub_menu->menu_name) }}</span>
+                  </a>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        @else
+          <div class="menu-item">
+            <a class="menu-link" href="file_manager.html">
+              <span class="menu-icon">
+                <iconify-icon icon="ph:arrow-bend-double-up-right-thin"></iconify-icon>
+              </span>
+              <span class="menu-text">{{ ucwords($menu->menu_name) }}</span>
+            </a>
+          </div>
+        @endif
+      @endforeach
+
+      <!-- api items list -->
+      <div class="menu-header">API ITEMS LIST</div>
+      <div class="menu-item">
+        <a class="menu-link" href="file_manager.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:live-tv-outline"></iconify-icon>
+          </span>
+          <span class="menu-text">TV SHOWS</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="file_manager.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:movie-outline-rounded"></iconify-icon>
+          </span>
+          <span class="menu-text">MOVIES</span>
+        </a>
+      </div>
+
+      <!-- user portal -->
       <div class="menu-header">USER PORTAL</div>
       <div class="menu-item">
         <a class="menu-link" href="file_manager.html">

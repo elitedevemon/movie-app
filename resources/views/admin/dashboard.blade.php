@@ -13,7 +13,7 @@
             <!-- BEGIN card -->
             <div class="card h-100">
               <!-- BEGIN card-header -->
-              <div class="card-header">PAGE VIEWS</div>
+              <div class="card-header">MONTHLY PAGE VIEWS</div>
               <!-- END card-header -->
 
               <!-- BEGIN card-body -->
@@ -37,7 +37,7 @@
             <!-- BEGIN card -->
             <div class="card h-100">
               <!-- BEGIN card-header -->
-              <div class="card-header">AVG SESS. DURATION</div>
+              <div class="card-header">MONTHLY AVG PAGE VIEWS</div>
               <!-- END card-header -->
 
               <!-- BEGIN card-body -->
@@ -61,7 +61,7 @@
             <!-- BEGIN card -->
             <div class="card h-100">
               <!-- BEGIN card-header -->
-              <div class="card-header">NEW VISITORS</div>
+              <div class="card-header">DAILY PAGE VIEWS</div>
               <!-- END card-header -->
 
               <!-- BEGIN card-body -->
@@ -85,7 +85,7 @@
             <!-- BEGIN card -->
             <div class="card h-100">
               <!-- BEGIN card-header -->
-              <div class="card-header">BOUNCE RATE</div>
+              <div class="card-header">DAILY TOTAL VISITORS</div>
               <!-- END card-header -->
 
               <!-- BEGIN card-body -->
@@ -109,7 +109,7 @@
             <!-- BEGIN card -->
             <div class="card h-100">
               <!-- BEGIN card-header -->
-              <div class="card-header">TOP REFERRING SITES</div>
+              <div class="card-header">MONTHLY TOTAL VISITORS</div>
               <!-- END card-header -->
 
               <!-- BEGIN card-body -->
@@ -133,7 +133,7 @@
             <!-- BEGIN card -->
             <div class="card h-100">
               <!-- BEGIN card-header -->
-              <div class="card-header">COUNTRIES REACH</div>
+              <div class="card-header">MONTHLY AVG VISITORS</div>
               <!-- END card-header -->
 
               <!-- BEGIN card-body -->
@@ -317,10 +317,6 @@
                 <div class="card-header-btn">
                   <a class="btn" data-toggle="card-collapse" href="#"><iconify-icon
                       icon="material-symbols-light:stat-minus-1"></iconify-icon></a>
-                  <a class="btn" data-toggle="card-expand" href="#"><iconify-icon
-                      icon="material-symbols-light:fullscreen"></iconify-icon></a>
-                  <a class="btn" data-toggle="card-remove" href="#"><iconify-icon
-                      icon="material-symbols-light:close-rounded"></iconify-icon></a>
                 </div>
               </div>
               <!-- END card-header -->
@@ -329,25 +325,29 @@
               <div class="card-body">
                 <table class="table-py-1px fs-10px fw-semibold text-white">
                   <tbody>
-                    <tr>
-                      <td class="pe-3 text-white text-opacity-50">FIREWALL:</td>
-                      <td>ENABLED</td>
-                    </tr>
-                    <tr>
+                    {{-- <tr>
                       <td class="pe-3 text-white text-opacity-50">PERMISSION:</td>
                       <td>ADMIN</td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                       <td class="pe-3 text-white text-opacity-50">ENCRYPTION:</td>
-                      <td>AES-256</td>
+                      <td>{{ env('APP_KEY') ? 'ENCRYPTED' : '' }}</td>
                     </tr>
                     <tr>
-                      <td class="pe-3 text-white text-opacity-50">IDS LEVEL:</td>
-                      <td>High</td>
+                      <td class="pe-3 text-white text-opacity-50">APP NAME:</td>
+                      <td>{{ env('APP_NAME') }}</td>
                     </tr>
                     <tr>
-                      <td class="pe-3 text-white text-opacity-50">ACCESS CONTROL:</td>
-                      <td>BIOMETRIC AUTHENTICATION</td>
+                      <td class="pe-3 text-white text-opacity-50">MAIL:</td>
+                      <td>{{ env('MAIL_FROM_ADDRESS') }}</td>
+                    </tr>
+                    <tr>
+                      <td class="pe-3 text-white text-opacity-50">APP DEBUG:</td>
+                      <td>{!! env('APP_DEBUG') ? html_entity_decode("<strong class='text-danger'>True</strong>") : 'False' !!}</td>
+                    </tr>
+                    <tr>
+                      <td class="pe-3 text-white text-opacity-50">ERROR:</td>
+                      <td>{!! env('APP_DEBUG') ? html_entity_decode("<strong class='text-danger'>True</strong>") : 'False' !!}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -364,14 +364,10 @@
             <div class="card h-100">
               <!-- BEGIN card-header -->
               <div class="card-header with-btn">
-                THREAT DETECTION
+                TO-DO
                 <div class="card-header-btn">
                   <a class="btn" data-toggle="card-collapse" href="#"><iconify-icon
                       icon="material-symbols-light:stat-minus-1"></iconify-icon></a>
-                  <a class="btn" data-toggle="card-expand" href="#"><iconify-icon
-                      icon="material-symbols-light:fullscreen"></iconify-icon></a>
-                  <a class="btn" data-toggle="card-remove" href="#"><iconify-icon
-                      icon="material-symbols-light:close-rounded"></iconify-icon></a>
                 </div>
               </div>
               <!-- END card-header -->
@@ -386,7 +382,7 @@
                       <div class="w-40px mx-auto">
                         <div data-render="apexchart" data-type="donut" data-height="40"></div>
                       </div>
-                      <div class="mt-2">THREATS</div>
+                      <div class="mt-2">COMPLETED</div>
                       <div class="text-white">459</div>
                     </div>
                   </div>
@@ -398,7 +394,7 @@
                       <div class="w-40px mx-auto">
                         <div data-render="apexchart" data-type="donut" data-height="40"></div>
                       </div>
-                      <div class="mt-2">FALSE POS</div>
+                      <div class="mt-2">IN PROGRESS</div>
                       <div class="mt-0 text-white">20</div>
                     </div>
                   </div>
@@ -410,7 +406,7 @@
                       <div class="w-40px mx-auto">
                         <div data-render="apexchart" data-type="donut" data-height="40"></div>
                       </div>
-                      <div class="mt-2">RESP. TIME</div>
+                      <div class="mt-2">CANCELLED</div>
                       <div class="mt-0 text-white">1 min</div>
                     </div>
                   </div>
@@ -423,42 +419,30 @@
                 <table class="w-100 text-truncate fs-10px table-py-1px">
                   <thead>
                     <tr class="text-white">
-                      <th width="40%">DETECTION SRC.</th>
-                      <th width="25%">TYPE</th>
-                      <th width="25%">SEVERITY</th>
+                      <th width="90%">TYPE</th>
                       <th width="10%">TOTAL</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>IDS</td>
-                      <td>Malware</td>
-                      <td>High</td>
-                      <td>150</td>
+                      <td>COMPLETED</td>
+                      <td>1</td>
                     </tr>
                     <tr>
-                      <td>IPS</td>
-                      <td>Phishing</td>
-                      <td>Medium</td>
-                      <td>90</td>
+                      <td>IN PROGRESS</td>
+                      <td>1</td>
                     </tr>
                     <tr>
-                      <td>FIREWALL</td>
-                      <td>DDoS</td>
-                      <td>Critical</td>
-                      <td>45</td>
+                      <td>CANCELLED</td>
+                      <td>1</td>
                     </tr>
                     <tr>
-                      <td>ENDPOINT</td>
-                      <td>XSS</td>
-                      <td>High</td>
-                      <td>30</td>
+                      <td>REJECTED</td>
+                      <td>1</td>
                     </tr>
                     <tr>
-                      <td>IDS</td>
-                      <td>SQL Injection</td>
-                      <td>Low</td>
-                      <td>75</td>
+                      <td>OVERDUE</td>
+                      <td>1</td>
                     </tr>
                   </tbody>
                 </table>
@@ -483,10 +467,6 @@
             <div class="card-header-btn">
               <a class="btn" data-toggle="card-collapse" href="#"><iconify-icon
                   icon="material-symbols-light:stat-minus-1"></iconify-icon></a>
-              <a class="btn" data-toggle="card-expand" href="#"><iconify-icon
-                  icon="material-symbols-light:fullscreen"></iconify-icon></a>
-              <a class="btn" data-toggle="card-remove" href="#"><iconify-icon
-                  icon="material-symbols-light:close-rounded"></iconify-icon></a>
             </div>
           </div>
           <!-- END card-header -->
@@ -501,7 +481,7 @@
                   <div class="fs-32px text-theme d-flex w-40px"><iconify-icon
                       icon="material-symbols-light:bar-chart-4-bars"></iconify-icon></div>
                   <div class="flex-1">
-                    <div class="fs-10px fw-semibold mb-1 text-white text-opacity-50">REVENUE</div>
+                    <div class="fs-10px fw-semibold mb-1 text-white text-opacity-50">VIDEOS</div>
                     <div class="h6 fw-base mb-0">$7.5m</div>
                   </div>
                 </div>
@@ -514,7 +494,7 @@
                   <div class="fs-32px text-theme d-flex w-40px"><iconify-icon
                       icon="material-symbols-light:group-outline"></iconify-icon></div>
                   <div class="flex-1">
-                    <div class="fs-10px fw-semibold mb-1 text-white text-opacity-50">CUSTOMERS</div>
+                    <div class="fs-10px fw-semibold mb-1 text-white text-opacity-50">VISITORS</div>
                     <div class="h6 fw-base mb-0">45k</div>
                   </div>
                 </div>
@@ -527,7 +507,7 @@
                   <div class="fs-32px text-theme d-flex w-40px"><iconify-icon
                       icon="material-symbols-light:touch-app-outline"></iconify-icon></div>
                   <div class="flex-1">
-                    <div class="fs-10px fw-semibold mb-1 text-white text-opacity-50">VISITS</div>
+                    <div class="fs-10px fw-semibold mb-1 text-white text-opacity-50">CLICKS</div>
                     <div class="h6 fw-base mb-0">1.3m</div>
                   </div>
                 </div>
@@ -572,7 +552,7 @@
                   <div class="fs-32px text-theme d-flex w-40px"><iconify-icon
                       icon="material-symbols-light:store-outline"></iconify-icon></div>
                   <div class="flex-1">
-                    <div class="fs-10px fw-semibold mb-1 text-white text-opacity-50">SALES</div>
+                    <div class="fs-10px fw-semibold mb-1 text-white text-opacity-50">DOWNLOADS</div>
                     <div class="h6 fw-base mb-0">$8.9m</div>
                   </div>
                 </div>
@@ -591,14 +571,10 @@
         <div class="card h-100">
           <!-- BEGIN card-header -->
           <div class="card-header with-btn">
-            SALES PERFORMANCE
+            MONTHLY PERFORMANCE
             <div class="card-header-btn">
               <a class="btn" data-toggle="card-collapse" href="#"><iconify-icon
                   icon="material-symbols-light:stat-minus-1"></iconify-icon></a>
-              <a class="btn" data-toggle="card-expand" href="#"><iconify-icon
-                  icon="material-symbols-light:fullscreen"></iconify-icon></a>
-              <a class="btn" data-toggle="card-remove" href="#"><iconify-icon
-                  icon="material-symbols-light:close-rounded"></iconify-icon></a>
             </div>
           </div>
           <!-- END card-header -->
@@ -608,57 +584,57 @@
             <div class="d-flex align-items-center mb-1">
               <span
                 class="w-15px h-15px d-flex align-items-center bg-theme justify-content-center text-black">1</span>
-              <span class="flex-1 ps-2">NORTH AMERICA REGION</span>
+              <span class="flex-1 ps-2">JANUARY</span>
               <span class="w-110px">
                 <div class="progress h-3px mt-1px bg-black">
                   <div class="progress-bar bg-theme" style="width: 75%"></div>
                 </div>
               </span>
-              <span class="w-50px text-end">$700k</span>
+              <span class="w-50px text-end">1K</span>
             </div>
             <div class="d-flex align-items-center mb-1">
               <span
                 class="w-15px h-15px d-flex align-items-center bg-theme justify-content-center bg-opacity-75 text-black">2</span>
-              <span class="flex-1 ps-2">EUROPE REGION</span>
+              <span class="flex-1 ps-2">FEBRUARY</span>
               <span class="w-110px">
                 <div class="progress h-3px mt-1px bg-black">
                   <div class="progress-bar bg-theme bg-opacity-75" style="width: 85%"></div>
                 </div>
               </span>
-              <span class="w-50px text-end">$850k</span>
+              <span class="w-50px text-end">1k</span>
             </div>
             <div class="d-flex align-items-center mb-1">
               <span
                 class="w-15px h-15px d-flex align-items-center bg-theme justify-content-center bg-opacity-50 text-black">3</span>
-              <span class="flex-1 ps-2">ASIA-PACIFIC REGION</span>
+              <span class="flex-1 ps-2">MARCH</span>
               <span class="w-110px">
                 <div class="progress h-3px mt-1px bg-black">
                   <div class="progress-bar bg-theme bg-opacity-75" style="width: 60%"></div>
                 </div>
               </span>
-              <span class="w-50px text-end">$600k</span>
+              <span class="w-50px text-end">1k</span>
             </div>
             <div class="d-flex align-items-center mb-1">
               <span
                 class="w-15px h-15px d-flex align-items-center justify-content-center bg-white bg-opacity-25 text-black">4</span>
-              <span class="flex-1 ps-2">SOUTH AMERICA REGION</span>
+              <span class="flex-1 ps-2">APRIL</span>
               <span class="w-110px">
                 <div class="progress h-3px mt-1px bg-black">
                   <div class="progress-bar bg-white bg-opacity-50" style="width: 90%"></div>
                 </div>
               </span>
-              <span class="w-50px text-end">$900k</span>
+              <span class="w-50px text-end">1k</span>
             </div>
             <div class="d-flex align-items-center mb-0">
               <span
                 class="w-15px h-15px d-flex align-items-center justify-content-center bg-white bg-opacity-25 text-black">5</span>
-              <span class="flex-1 ps-2">AFRICA REGION</span>
+              <span class="flex-1 ps-2">MAY</span>
               <span class="w-110px">
                 <div class="progress h-3px mt-1px bg-black">
                   <div class="progress-bar bg-white bg-opacity-25" style="width: 40%"></div>
                 </div>
               </span>
-              <span class="w-50px text-end">$400k</span>
+              <span class="w-50px text-end">1k</span>
             </div>
           </div>
           <!-- END card-body -->
@@ -673,14 +649,10 @@
         <div class="card h-100">
           <!-- BEGIN card-header -->
           <div class="card-header with-btn">
-            OPERATIONAL OVERVIEW
+            WEEKLY VISITORS TARGET
             <div class="card-header-btn">
               <a class="btn" data-toggle="card-collapse" href="#"><iconify-icon
                   icon="material-symbols-light:stat-minus-1"></iconify-icon></a>
-              <a class="btn" data-toggle="card-expand" href="#"><iconify-icon
-                  icon="material-symbols-light:fullscreen"></iconify-icon></a>
-              <a class="btn" data-toggle="card-remove" href="#"><iconify-icon
-                  icon="material-symbols-light:close-rounded"></iconify-icon></a>
             </div>
           </div>
           <!-- END card-header -->
@@ -703,21 +675,21 @@
                   <div class="col-6">
                     <div class="d-flex align-items-center">
                       <div class="text-body w-70px text-opacity-50">CURRENT:</div>
-                      <div class="fw-semibold flex-1 text-white">1,000 UNITS</div>
+                      <div class="fw-semibold flex-1 text-white">1,000 USERS</div>
                     </div>
                     <div class="d-flex align-items-center">
                       <div class="text-body w-70px text-opacity-50">TARGET:</div>
-                      <div class="fw-semibold flex-1 text-white">1,200 UNITS</div>
+                      <div class="fw-semibold flex-1 text-white">1,200 USERS</div>
                     </div>
                   </div>
                   <div class="col-6">
                     <div class="d-flex align-items-center">
-                      <div class="text-body w-70px text-opacity-50">RATE:</div>
-                      <div class="fw-semibold flex-1 text-white">200 UNITS/W</div>
+                      <div class="text-body w-50px text-opacity-50">DUE:</div>
+                      <div class="fw-semibold flex-1 text-white">200 USERS/W</div>
                     </div>
                     <div class="d-flex align-items-center">
-                      <div class="text-body w-70px text-opacity-50">PREV WEEK:</div>
-                      <div class="fw-semibold flex-1 text-white">190 UNITS</div>
+                      <div class="text-body w-50px text-opacity-50">PREV:</div>
+                      <div class="fw-semibold flex-1 text-white">190 USERS</div>
                     </div>
                   </div>
                 </div>
@@ -736,14 +708,10 @@
         <div class="card h-100">
           <!-- BEGIN card-header -->
           <div class="card-header with-btn">
-            SALES BY SOCIAL SOURCE
+            CLICKS BY SOCIAL SOURCE
             <div class="card-header-btn">
               <a class="btn" data-toggle="card-collapse" href="#"><iconify-icon
                   icon="material-symbols-light:stat-minus-1"></iconify-icon></a>
-              <a class="btn" data-toggle="card-expand" href="#"><iconify-icon
-                  icon="material-symbols-light:fullscreen"></iconify-icon></a>
-              <a class="btn" data-toggle="card-remove" href="#"><iconify-icon
-                  icon="material-symbols-light:close-rounded"></iconify-icon></a>
             </div>
           </div>
           <!-- END card-header -->
@@ -754,7 +722,7 @@
               <div class="flex-1">
                 <!-- BEGIN sales -->
                 <div class="h4 fw-300 text-theme mb-0 flex-1">
-                  $70,563.43
+                  70,563.43
                 </div>
                 <!-- END sales -->
                 <!-- BEGIN percentage -->
@@ -774,7 +742,7 @@
               </div>
               <div class="fs-10px flex-1 px-3">APPLE STORE</div>
               <div class="fw-semibold small text-white">
-                $<span data-animation="number" data-value="34,840.17">34,840.17</span>
+                <span data-animation="number" data-value="34,840.17">34,840.17</span>
               </div>
             </div>
             <div class="d-flex align-items-center mb-2 text-white">
@@ -784,7 +752,7 @@
               </div>
               <div class="fs-10px flex-1 px-3">FACEBOOK</div>
               <div class="fw-semibold small text-white">
-                $<span data-animation="number" data-value="12,502.67">12,502.67</span>
+                <span data-animation="number" data-value="12,502.67">12,502.67</span>
               </div>
             </div>
             <div class="d-flex align-items-center mb-2 text-white">
@@ -794,7 +762,7 @@
               </div>
               <div class="fs-10px flex-1 px-3">INSTAGRAM</div>
               <div class="fw-semibold small text-white">
-                $<span data-animation="number" data-value="8,569.75">8,569.75</span>
+                <span data-animation="number" data-value="8,569.75">8,569.75</span>
               </div>
             </div>
             <div class="d-flex align-items-center mb-2 text-white">
@@ -804,7 +772,7 @@
               </div>
               <div class="fs-10px flex-1 px-3">YOUTUBE</div>
               <div class="fw-semibold small text-white">
-                $<span data-animation="number" data-value="6,021.79">6,021.79</span>
+                <span data-animation="number" data-value="6,021.79">6,021.79</span>
               </div>
             </div>
             <div class="d-flex align-items-center mb-2 text-white">
@@ -814,7 +782,7 @@
               </div>
               <div class="fs-10px flex-1 px-3">TWITTER</div>
               <div class="fw-semibold small text-white">
-                $<span data-animation="number" data-value="4,799.20">4,799.20</span>
+                <span data-animation="number" data-value="4,799.20">4,799.20</span>
               </div>
             </div>
             <div class="d-flex align-items-center mb-2 text-white">
@@ -824,7 +792,7 @@
               </div>
               <div class="fs-10px flex-1 px-3">GOOGLE</div>
               <div class="fw-semibold small text-white">
-                $<span data-animation="number" data-value="3,405.85">3,405.85</span>
+                <span data-animation="number" data-value="3,405.85">3,405.85</span>
               </div>
             </div>
             <div class="d-flex align-items-center mb-2 text-white">
@@ -834,7 +802,7 @@
               </div>
               <div class="fs-10px flex-1 px-3">TIKTOK</div>
               <div class="fw-semibold small text-white">
-                $<span data-animation="number" data-value="424.00">424.00</span>
+                <span data-animation="number" data-value="424.00">424.00</span>
               </div>
             </div>
           </div>
@@ -850,25 +818,51 @@
         <div class="card">
           <!-- BEGIN card-header -->
           <div class="card-header with-btn">
-            TOP PRODUCTS BY UNITS SOLD
+            VIDEO IMPRESSIONS
             <div class="card-header-btn">
               <a class="btn" data-toggle="card-collapse" href="#"><iconify-icon
                   icon="material-symbols-light:stat-minus-1"></iconify-icon></a>
-              <a class="btn" data-toggle="card-expand" href="#"><iconify-icon
-                  icon="material-symbols-light:fullscreen"></iconify-icon></a>
-              <a class="btn" data-toggle="card-remove" href="#"><iconify-icon
-                  icon="material-symbols-light:close-rounded"></iconify-icon></a>
             </div>
           </div>
           <!-- END card-header -->
 
           <!-- BEGIN card-body -->
-          <div class="card-body">
+          <div class="card-body overflow-y-auto video-impression" style="height: 260px !important;">
             <!-- BEGIN product -->
             <div class="d-flex align-items-center fs-10px mb-3">
               <div
                 class="fs-20px w-30px h-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
-                <iconify-icon icon="material-symbols-light:phone-iphone-outline-sharp"></iconify-icon>
+                <iconify-icon icon="material-symbols-light:video-library"></iconify-icon>
+              </div>
+              <div class="text-truncate flex-1 ps-3">
+                <div class="fw-semibold text-white">APPLE IPHONE 15 PRO MAX</div>
+                <div class="text-white text-opacity-50">$1,099.00</div>
+              </div>
+              <div class="text-center">
+                <div class="fw-semibold fs-12px text-white"><span data-animation="number"
+                    data-value="210">210</span></div>
+                <div class="fs-7px fw-semibold mb-1 text-white text-opacity-50">SOLD</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center fs-10px mb-3">
+              <div
+                class="fs-20px w-30px h-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
+                <iconify-icon icon="material-symbols-light:video-library"></iconify-icon>
+              </div>
+              <div class="text-truncate flex-1 ps-3">
+                <div class="fw-semibold text-white">APPLE IPHONE 15 PRO MAX</div>
+                <div class="text-white text-opacity-50">$1,099.00</div>
+              </div>
+              <div class="text-center">
+                <div class="fw-semibold fs-12px text-white"><span data-animation="number"
+                    data-value="210">210</span></div>
+                <div class="fs-7px fw-semibold mb-1 text-white text-opacity-50">SOLD</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center fs-10px mb-3">
+              <div
+                class="fs-20px w-30px h-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
+                <iconify-icon icon="material-symbols-light:video-library"></iconify-icon>
               </div>
               <div class="text-truncate flex-1 ps-3">
                 <div class="fw-semibold text-white">APPLE IPHONE 15 PRO MAX</div>
