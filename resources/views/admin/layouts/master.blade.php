@@ -23,7 +23,9 @@
       @include('admin.layouts.sidebar')
 
       <!-- main content -->
-      @yield('content')
+      <div class="app-content p-3" id="content">
+        @yield('content')
+      </div>
       <!-- end main content -->
 
       @include('admin.layouts.partials.scroll-top')

@@ -18,23 +18,18 @@
           <span class="menu-icon">
             <iconify-icon icon="ph:envelope-duotone"></iconify-icon>
           </span>
-          <span class="menu-text">EMAIL</span>
+          <span class="menu-text">ANALYTICS</span>
           <span class="menu-caret"><b class="caret"></b></span>
         </a>
         <div class="menu-submenu">
           <div class="menu-item">
             <a class="menu-link" href="email_inbox.html">
-              <span class="menu-text">INBOX</span>
+              <span class="menu-text">SUMON</span>
             </a>
           </div>
           <div class="menu-item">
             <a class="menu-link" href="email_compose.html">
-              <span class="menu-text">COMPOSE</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="email_detail.html">
-              <span class="menu-text">DETAIL</span>
+              <span class="menu-text">SAGOR</span>
             </a>
           </div>
         </div>
@@ -114,6 +109,101 @@
             </a>
           </div>
         </div>
+      </div>
+
+      <!-- backend controller -->
+      <div class="menu-header">BACKEND CONTROLLER</div>
+      <div class="menu-item">
+        <a class="menu-link" href="{{ route('admin.videos.index') }}">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:folder-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">VIDEOS</span>
+        </a>
+      </div>
+      <div class="menu-item has-sub">
+        <a class="menu-link" href="#">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:open-ai-logo-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">USERS (1)</span>
+          <span class="menu-caret"><b class="caret"></b></span>
+        </a>
+        <div class="menu-submenu">
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">NEWSLETTER USER LIST</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">ADD USER</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">SEND NOTIFICATION</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">MOVIE REQUEST (1)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="file_manager.html">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:folder-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">TODO</span>
+        </a>
+      </div>
+      <div class="menu-item has-sub">
+        <a class="menu-link" href="#">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:open-ai-logo-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">NEWS</span>
+          <span class="menu-caret"><b class="caret"></b></span>
+        </a>
+        <div class="menu-submenu">
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">NEWS LIST</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">ADD NEWS</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">ADD NEWS CATEGORY</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- api items list -->
+      <div class="menu-header">API ITEMS LIST</div>
+      <div class="menu-item">
+        <a class="menu-link" href="file_manager.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:live-tv-outline"></iconify-icon>
+          </span>
+          <span class="menu-text">TV SHOWS</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="file_manager.html">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:movie-outline-rounded"></iconify-icon>
+          </span>
+          <span class="menu-text">MOVIES</span>
+        </a>
       </div>
 
       <!-- frontend components -->
@@ -375,33 +465,40 @@
         @endif
       @endforeach
 
-      <!-- api items list -->
-      <div class="menu-header">API ITEMS LIST</div>
-      <div class="menu-item">
-        <a class="menu-link" href="file_manager.html">
+      <!-- Agent portal -->
+      <div class="menu-header">AGENT PORTAL</div>
+      <div class="menu-item has-sub">
+        <a class="menu-link" href="#">
           <span class="menu-icon">
-            <iconify-icon icon="material-symbols:live-tv-outline"></iconify-icon>
+            <iconify-icon icon="ph:open-ai-logo-duotone"></iconify-icon>
           </span>
-          <span class="menu-text">TV SHOWS</span>
+          <span class="menu-text">AGENTS</span>
+          <span class="menu-caret"><b class="caret"></b></span>
         </a>
+        <div class="menu-submenu">
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">AGENT LIST</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">ADD AGENT</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">AGENT TARGET</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="menu-item">
-        <a class="menu-link" href="file_manager.html">
-          <span class="menu-icon">
-            <iconify-icon icon="material-symbols:movie-outline-rounded"></iconify-icon>
-          </span>
-          <span class="menu-text">MOVIES</span>
-        </a>
-      </div>
-
-      <!-- user portal -->
-      <div class="menu-header">USER PORTAL</div>
       <div class="menu-item">
         <a class="menu-link" href="file_manager.html">
           <span class="menu-icon">
             <iconify-icon icon="ph:folder-duotone"></iconify-icon>
           </span>
-          <span class="menu-text">FILE MANAGER</span>
+          <span class="menu-text">TODO</span>
         </a>
       </div>
       <div class="menu-item">
