@@ -3,6 +3,7 @@
 
   <head>
     @include('layouts.header')
+    @stack('styles')
   </head>
 
   <body class="home blog wp-embed-responsive main" id="blog">
@@ -20,6 +21,7 @@
       @include('layouts.enable-javascript')
     </div><!--.main-container-->
     @include('layouts.footer')
+    @stack('scripts')
   </body>
 
 </html>

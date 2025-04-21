@@ -13,7 +13,8 @@
               <img class="card-img-top" src="{{ asset('assets/wp-content/uploads/Screenshot_2.png') }}"
                 alt="...">
               <div class="overlay d-flex align-items-center justify-content-center">
-                <img style="width: 75px; height: 15px;" src="{{ asset('assets/images/video-play-button.png') }}" alt=""> 
+                <img src="{{ asset('assets/images/video-play-button.png') }}" alt=""
+                  style="width: 75px; height: 15px;">
               </div>
             </div>
             <div class="card-body p-2">
@@ -74,7 +75,8 @@
               <img class="card-img-top" src="{{ asset('assets/wp-content/uploads/Screenshot_2.png') }}"
                 alt="...">
               <div class="overlay d-flex align-items-center justify-content-center">
-                <img style="width: 75px; height: 15px;" src="{{ asset('assets/images/video-play-button.png') }}" alt=""> 
+                <img src="{{ asset('assets/images/video-play-button.png') }}" alt=""
+                  style="width: 75px; height: 15px;">
               </div>
             </div>
             <div class="card-body p-2">
@@ -308,3 +310,32 @@
 
   </div>
 @endsection
+
+@push('styles')
+  <style>
+    .card-text-title {
+      color: #484f53;
+    }
+
+    /* Extra small devices (phones, less than 576px) */
+    @media (max-width: 575.98px) {
+      .card-text-title {
+        font-size: 15px !important;
+      }
+    }
+
+    /* Small devices (portrait tablets and large phones, 576px and up) */
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      .card-text-title {
+        font-size: 15px !important;
+      }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .card-text-title {
+        font-size: 15px !important;
+      }
+    }
+  </style>
+@endpush
