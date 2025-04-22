@@ -13,15 +13,15 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
     // menus routes
     Route::resource('menus', MenuController::class);
     Route::controller(MenuController::class)->prefix('submenus')->name('submenus.')->group(function () {
-      Route::get('/edit/{submenu}', 'submenuEdit')->name('edit');
-      Route::put('/update/{submenu}', 'submenuUpdate')->name('update');
-      Route::delete('/destroy/{submenu}', 'submenuDestroy')->name('destroy');
+      Route::get('edit/{submenu}', 'submenuEdit')->name('edit');
+      Route::put('update/{submenu}', 'submenuUpdate')->name('update');
+      Route::delete('destroy/{submenu}', 'submenuDestroy')->name('destroy');
     });
 
     // categories routes
     Route::resource('categories', CategoryController::class);
 
     // videos routes
-    Route::resource('/videos', VideoController::class);
+    Route::resource('videos', VideoController::class);
   });
 });

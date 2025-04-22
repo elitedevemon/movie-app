@@ -82,7 +82,7 @@
       <div class="menu-item {{ Route::is('admin.videos*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.videos.index') }}">
           <span class="menu-icon">
-            <iconify-icon icon="ph:folder-duotone"></iconify-icon>
+            <iconify-icon icon="mingcute:video-line"></iconify-icon>
           </span>
           <span class="menu-text">VIDEOS</span>
         </a>

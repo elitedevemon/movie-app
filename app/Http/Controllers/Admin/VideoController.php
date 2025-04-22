@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Menu;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class VideoController extends Controller
@@ -13,8 +15,8 @@ class VideoController extends Controller
    */
   public function index()
   {
-    $menus = Menu::with('sub_menus')->whereStatus(true)->get();
-    return view('admin.pages.videos.index', compact('menus'));
+    $videos = Video::all();
+    return view('admin.pages.videos.index', compact('videos'));
   }
 
   /**
@@ -22,7 +24,8 @@ class VideoController extends Controller
    */
   public function create()
   {
-    //
+    $categories = Category::all();
+    return view('admin.pages.videos.create', compact('categories'));
   }
 
   /**
@@ -30,7 +33,7 @@ class VideoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    
   }
 
   /**
