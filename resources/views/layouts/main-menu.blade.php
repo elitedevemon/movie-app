@@ -36,12 +36,12 @@
           @foreach ($menus as $menu)
             <li
               class="menu-item menu-item-type-taxonomy menu-item-object-category {{ $menu->sub_menus->count() ? 'menu-item-has-children' : '' }}">
-              <a href="genre/index.htm">{{ $menu->menu_name }}</a>
+              <a href="genre/index.htm">{{ $menu->name }}</a>
               @if ($menu->sub_menus)
                 <ul class="sub-menu">
                   @foreach ($menu->sub_menus as $sub_menu)
                     <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-287"
-                      id="menu-item-287"><a href="genre/action/index.htm">🔗{{ $sub_menu->menu_name }}</a></li>
+                      id="menu-item-287"><a href="genre/action/index.htm">🔗{{ $sub_menu->name }}</a></li>
                   @endforeach
                 </ul>
               @endif
@@ -60,12 +60,12 @@
           @foreach ($menus as $menu)
             <li
               class="menu-item menu-item-type-taxonomy menu-item-object-category {{ $menu->sub_menus->count() ? 'menu-item-has-children' : '' }}">
-              <a href="javascript:void(0)">{{ $menu->menu_name }}</a>
+              <a href="javascript:void(0)">{{ $menu->name }}</a>
               @if ($menu->sub_menus)
                 <ul class="sub-menu">
                   @foreach ($menu->sub_menus as $sub_menu)
                     <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-                      <a href="genre/action/index.htm">👉{{ $sub_menu->menu_name }}</a>
+                      <a href="">👉{{ $sub_menu->name }}</a>
                     </li>
                   @endforeach
                 </ul>

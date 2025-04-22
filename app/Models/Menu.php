@@ -10,7 +10,16 @@ class Menu extends Model
   /** @use HasFactory<\Database\Factories\MenuFactory> */
   use HasFactory;
 
-  public function sub_menus(){
+  protected $guarded = [];
+
+
+  public function sub_menus()
+  {
     return $this->hasMany(SubMenu::class);
+  }
+
+  public function getCategoriesAttribute()
+  {
+    return Category::whereIn('id', json_decode($this->category) ?? [])->get();
   }
 }

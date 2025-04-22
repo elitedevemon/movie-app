@@ -3,9 +3,9 @@
     <div class="alert">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
       <h2>
-        <font size="5px">{{ $trailer->trailer_name }} </font>
+        <font size="5px">{{ $trailer?->trailer_name }} </font>
       </h2>
-      <iframe class="w-100" height="315" src="{{ $trailer->trailer_url }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      <iframe class="w-100" height="315" src="{{ $trailer?->trailer_url }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </strong>

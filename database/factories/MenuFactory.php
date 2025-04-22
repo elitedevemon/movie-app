@@ -18,8 +18,10 @@ class MenuFactory extends Factory
   {
     return [
       // menu_name, slug
-      "menu_name" => $this->faker->name,
+      "name" => $this->faker->name,
       "slug" => $this->faker->slug,
+      "description" => $this->faker->text(100),
+      "category" => json_encode($this->faker->randomElements(\App\Models\Category::pluck('id')->toJson(), 2)),
     ];
   }
 }

@@ -3,13 +3,13 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Quantum | Dashboard</title>
+    <title>Movies Next | @yield('title', 'Dashboard')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
     @include('admin.layouts.partials.style')
-    @yield('styles')
+    @stack('styles')
 
   </head>
 
@@ -34,7 +34,7 @@
     </div>
     <!-- END #app -->
     @include('admin.layouts.partials.scripts')
-    @yield('scripts')
+    @stack('scripts')
   </body>
 
 </html>

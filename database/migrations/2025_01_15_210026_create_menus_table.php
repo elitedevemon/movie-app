@@ -12,8 +12,10 @@ return new class extends Migration {
   {
     Schema::create('menus', function (Blueprint $table) {
       $table->id();
-      $table->string('menu_name');
+      $table->string('name');
       $table->string('slug')->unique();
+      $table->string('description')->nullable();
+      $table->json('category')->nullable();
       $table->enum('status', [true,false])->default(true);
       $table->timestamps();
     });

@@ -13,8 +13,10 @@ return new class extends Migration {
     Schema::create('sub_menus', function (Blueprint $table) {
       $table->id();
       $table->foreignId('menu_id')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE');
-      $table->string('menu_name');
+      $table->string('name');
       $table->string('slug')->unique();
+      $table->string('description')->nullable();
+      $table->json('category')->nullable();
       $table->enum('status', [true, false])->default(true);
       $table->timestamps();
     });

@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
   {
     // User::factory(10)->create();
     Category::factory()->count(15)->create();
-    Menu::factory()->count(8)->create();
-    SubMenu::factory()->count(20)->create();
+    Menu::factory()->count(5)->create();
+    SubMenu::factory()->count(5)->create();
     News::factory()->count(20)->create();
     Trailer::factory()->count(20)->create();
 

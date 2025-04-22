@@ -20,8 +20,10 @@ class SubMenuFactory extends Factory
     return [
       //menu_id, menu_name, slug
       "menu_id" => $this->faker->randomElement(Menu::pluck('id')->toArray()),
-      "menu_name" => $this->faker->name,
+      "name" => $this->faker->name,
       "slug" => $this->faker->slug,
+      "description" => $this->faker->sentence,
+      "category" => json_encode($this->faker->randomElements(\App\Models\Category::pluck('id')->toJson(), 2)),
     ];
   }
 }

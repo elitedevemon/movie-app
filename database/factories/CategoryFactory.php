@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
   {
     return [
       // category_name, slug
-      "category_name" => $this->faker->name,
+      "name" => $this->faker->name,
       "slug" => $this->faker->slug,
     ];
   }

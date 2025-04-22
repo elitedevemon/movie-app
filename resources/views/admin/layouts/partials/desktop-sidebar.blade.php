@@ -37,36 +37,13 @@
 
       <!-- frontend controller -->
       <div class="menu-header">FRONTEND CONTROLLER</div>
-      <div class="menu-item has-sub">
-        <a class="menu-link" href="javascript:;">
-          <div class="menu-icon">
+      <div class="menu-item">
+        <a class="menu-link" href="{{ route('admin.menus.index') }}">
+          <span class="menu-icon">
             <iconify-icon icon="ph:article"></iconify-icon>
-          </div>
-          <div class="menu-text d-flex align-items-center">MENU</div>
-          <span class="menu-caret"><b class="caret"></b></span>
+          </span>
+          <span class="menu-text">MENU</span>
         </a>
-        <div class="menu-submenu">
-          <div class="menu-item">
-            <a class="menu-link" href="pos_customer_order.html" target="_blank">
-              <div class="menu-text">MAIN MENU LIST</div>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="pos_kitchen_order.html" target="_blank">
-              <div class="menu-text">CREATE MAIN MENU</div>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="pos_customer_order.html" target="_blank">
-              <div class="menu-text">SUB MENU LIST</div>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="pos_kitchen_order.html" target="_blank">
-              <div class="menu-text">CREATE SUB MENU</div>
-            </a>
-          </div>
-        </div>
       </div>
       <div class="menu-item has-sub">
         <a class="menu-link" href="#">

@@ -5,7 +5,7 @@
         Join Telegram</button></a>
     @foreach ($categories as $category)
       <a data-wpel-link="internal" href="{{ $category->slug }}" target="_blank"><button
-          class="button button5">{{ $category->category_name }}</button></a>
+          class="button button5">{{ $category->name }}</button></a>
     @endforeach
   </strong>
 </center>
