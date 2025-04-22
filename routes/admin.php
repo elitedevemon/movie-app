@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\AdminController;
@@ -15,6 +17,9 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
       Route::put('/update/{submenu}', 'submenuUpdate')->name('update');
       Route::delete('/destroy/{submenu}', 'submenuDestroy')->name('destroy');
     });
+
+    // categories routes
+    Route::resource('categories', CategoryController::class);
 
     // videos routes
     Route::resource('/videos', VideoController::class);

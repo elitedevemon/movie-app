@@ -5,8 +5,8 @@
     <!-- BEGIN menu -->
     <div class="menu">
       <div class="menu-header">APP INTERFACE</div>
-      <div class="menu-item active">
-        <a class="menu-link" href="index.html">
+      <div class="menu-item {{ request()->is('admin/dashboard') ? 'active' : '' }}">
+        <a class="menu-link" href="{{ route('admin.dashboard') }}">
           <span class="menu-icon">
             <iconify-icon icon="ph:rocket-duotone"></iconify-icon>
           </span>
@@ -37,7 +37,8 @@
 
       <!-- frontend controller -->
       <div class="menu-header">FRONTEND CONTROLLER</div>
-      <div class="menu-item">
+      <!-- menus -->
+      <div class="menu-item {{ Route::is('admin.menus*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.menus.index') }}">
           <span class="menu-icon">
             <iconify-icon icon="ph:article"></iconify-icon>
@@ -45,26 +46,14 @@
           <span class="menu-text">MENU</span>
         </a>
       </div>
-      <div class="menu-item has-sub">
-        <a class="menu-link" href="#">
+      <!-- categories -->
+      <div class="menu-item {{ Route::is('admin.categories*') ? 'active' : '' }}">
+        <a class="menu-link" href="{{ route('admin.categories.index') }}">
           <span class="menu-icon">
             <iconify-icon icon="material-symbols:category-outline-rounded"></iconify-icon>
           </span>
-          <span class="menu-text">CATEGORIES</span>
-          <span class="menu-caret"><b class="caret"></b></span>
+          <span class="menu-text">CATEGORY</span>
         </a>
-        <div class="menu-submenu">
-          <div class="menu-item">
-            <a class="menu-link" href="ui_bootstrap.html">
-              <span class="menu-text">CATEGORY LIST</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="ui_buttons.html">
-              <span class="menu-text">CREATE CATEGORY</span>
-            </a>
-          </div>
-        </div>
       </div>
       <div class="menu-item has-sub">
         <a class="menu-link" href="#">
@@ -90,12 +79,20 @@
 
       <!-- backend controller -->
       <div class="menu-header">BACKEND CONTROLLER</div>
-      <div class="menu-item">
+      <div class="menu-item {{ Route::is('admin.videos*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.videos.index') }}">
           <span class="menu-icon">
             <iconify-icon icon="ph:folder-duotone"></iconify-icon>
           </span>
           <span class="menu-text">VIDEOS</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="{{ route('admin.videos.index') }}">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:folder-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">ARTICLES</span>
         </a>
       </div>
       <div class="menu-item has-sub">
@@ -410,7 +407,12 @@
 
       <!-- menu items list -->
       <div class="menu-header">MENU ITEMS LIST</div>
-      @foreach ($menus as $menu)
+      <!-- get menu from database -->
+      @php
+        $menus = \App\Models\Menu::with('sub_menus')->whereStatus(true)->get();
+      @endphp
+
+      @forelse ($menus as $menu)
         @if ($menu->sub_menus->count())
           <div class="menu-item has-sub">
             <a class="menu-link" href="#">
@@ -440,7 +442,16 @@
             </a>
           </div>
         @endif
-      @endforeach
+      @empty
+        <div class="menu-item">
+          <a class="menu-link" href="javascript:void(0)">
+            <span class="menu-icon">
+              <iconify-icon icon="ph:arrow-bend-double-up-right-thin"></iconify-icon>
+            </span>
+            <span class="menu-text">No Menu Found</span>
+          </a>
+        </div>
+      @endforelse
 
       <!-- Agent portal -->
       <div class="menu-header">AGENT PORTAL</div>

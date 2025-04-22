@@ -30,7 +30,7 @@
 
       @include('admin.layouts.partials.scroll-top')
 
-      @include('admin.layouts.partials.theme-panel')
+      {{-- @include('admin.layouts.partials.theme-panel') --}}
     </div>
     <!-- END #app -->
     @include('admin.layouts.partials.scripts')

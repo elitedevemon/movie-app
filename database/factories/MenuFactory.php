@@ -21,7 +21,7 @@ class MenuFactory extends Factory
       "name" => $this->faker->name,
       "slug" => $this->faker->slug,
       "description" => $this->faker->text(100),
-      "category" => json_encode($this->faker->randomElements(\App\Models\Category::pluck('id')->toJson(), 2)),
+      "category" => json_encode($this->faker->randomElements(\App\Models\Category::pluck('id')->toArray(), 2)),
     ];
   }
 }

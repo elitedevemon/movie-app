@@ -20,6 +20,7 @@ class CategoryFactory extends Factory
       // category_name, slug
       "name" => $this->faker->name,
       "slug" => $this->faker->slug,
+      "description"=> $this->faker->sentence,
     ];
   }
 }

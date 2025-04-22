@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+@section('title', 'Menu')
 @section('content')
   <div class="row">
     <div class="col-xl-12">

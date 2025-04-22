@@ -14,6 +14,7 @@ return new class extends Migration {
       $table->id();
       $table->string('name');
       $table->string('slug')->unique();
+      $table->longText('description')->nullable();
       $table->enum('status', [true,false])->default(true);
       $table->timestamps();
     });
