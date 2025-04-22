@@ -33,15 +33,25 @@
                           onmouseleave="document.getElementById('menu-{{ $menu->id }}').classList.add('d-none');">
                           {{ $menu->name }}
                           <div class="d-none" id="menu-{{ $menu->id }}">
-                            <a class="btn btn-sm" href="">
-                              <iconify-icon class="fs-4" icon="ph:trash"></iconify-icon>
+                            <!-- show -->
+                            <a href="{{ route('admin.menus.show', $menu->id) }}" style="text-decoration: none;">
+                              <iconify-icon icon="ph:eye"></iconify-icon>
                             </a>
-                            <a class="btn btn-sm" href="">
-                              <iconify-icon class="fs-4" icon="ph:note-pencil-light"></iconify-icon>
+                            <!-- edit -->
+                            <a href="{{ route('admin.menus.edit', $menu->id) }}" style="text-decoration: none;">
+                              <iconify-icon icon="ph:note-pencil-light"></iconify-icon>
                             </a>
-                            <a class="btn btn-sm" href="">
-                              <iconify-icon class="fs-4" icon="ph:eye"></iconify-icon>
-                            </a>
+                            <!-- delete -->
+                            <form style="display:inline;"
+                              action="{{ route('admin.menus.destroy', $menu->id) }}" method="POST"
+                              onsubmit="return confirm('Are you sure you want to delete this menu?');">
+                              @csrf
+                              @method('DELETE')
+                              <a href="javascript:void(0);" style="text-decoration: none;"
+                                onclick="if(confirm('Are you sure you want to delete this menu?')) this.closest('form').submit();">
+                                <iconify-icon icon="ph:trash"></iconify-icon>
+                              </a>
+                            </form>
                           </div>
                         </td>
                       @endif
@@ -50,16 +60,17 @@
                       <td>{{ $submenu->description }}</td>
                       <td>
                         @foreach ($submenu->categories as $category)
-                          <span class="badge bg-primary">{{ $category->name }}</span>
+                          <span class="badge bg-primary rounded-pill">{{ $category->name }}</span>
                         @endforeach
                       </td>
                       <td class="d-flex justify-content-between align-items-center">
                         <a class="btn btn-warning float-start"
-                          href="{{ route('admin.menus.edit', $submenu->id) }}">
+                          href="{{ route('admin.submenus.edit', $submenu->id) }}">
                           <iconify-icon class="fs-4" icon="ph:note-pencil-light"></iconify-icon>
                         </a>
-                        <form style="display:inline;" action="{{ route('admin.menus.destroy', $submenu->id) }}"
-                          method="POST">
+                        <form style="display:inline;"
+                          action="{{ route('admin.submenus.destroy', $submenu->id) }}" method="POST"
+                          onsubmit="return confirm('Are you sure you want to delete this submenu?');">
                           @csrf
                           @method('DELETE')
                           <button class="btn btn-danger float-end" type="submit">
@@ -77,7 +88,7 @@
                     <td>{{ $menu->description }}</td>
                     <td>
                       @foreach ($menu->categories as $category)
-                        <span class="badge bg-primary">{{ $category->name }}</span>
+                        <span class="badge bg-primary rounded-pill">{{ $category->name }}</span>
                       @endforeach
                     </td>
                     <td class="d-flex justify-content-between align-items-center">
@@ -85,7 +96,8 @@
                         <iconify-icon class="fs-4" icon="ph:note-pencil-light"></iconify-icon>
                       </a>
                       <form style="display:inline;" action="{{ route('admin.menus.destroy', $menu->id) }}"
-                        method="POST">
+                        method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete this submenu?');">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger float-end" type="submit">

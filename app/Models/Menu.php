@@ -22,4 +22,9 @@ class Menu extends Model
   {
     return Category::whereIn('id', json_decode($this->category) ?? [])->get();
   }
+
+  public function categoryCheck($category_id)
+  {
+    return in_array($category_id, json_decode($this->category) ?? []);
+  }
 }
