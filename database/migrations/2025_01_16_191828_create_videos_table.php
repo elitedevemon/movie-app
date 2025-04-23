@@ -18,7 +18,7 @@ return new class extends Migration {
       $table->json('subtitle_language')->nullable();
       $table->integer('duration')->nullable();
       $table->date('release_date')->nullable();
-      $table->url('trailer_url')->nullable();
+      $table->string('trailer_url')->nullable();
       $table->string('country')->nullable();
       $table->string('age_restriction')->nullable();
       $table->enum('production_status', ['released', 'upcoming', 'post-production'])->default('released');
@@ -48,7 +48,7 @@ return new class extends Migration {
       // media files
       $table->string('thumbnail')->nullable();
       $table->string('background_poster')->nullable();
-      $table->json('screenshot')->nullable();
+      $table->string('screenshot')->nullable();
       $table->string('trailer')->nullable();
       $table->json('subtitle_file')->nullable();
       $table->enum('status', [true, false])->default(true);

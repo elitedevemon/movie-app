@@ -1,0 +1,1 @@
+1. embedding the terabox videos into website, you can directly use https://www.1024terabox.com/sharing/embed?autoplay=true&resolution=1080&mute=false&surl=bhGiUQMJ-C6ZxCEz8qAqWQ this link, where the url will be the video code without first number.
