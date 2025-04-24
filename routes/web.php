@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', fn() => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('video')->name('video.')->group(function(){
+  Route::get('/{video:slug}', [WelcomeController::class, 'check'])->name('check');
+  Route::get('watch/{video:slug}', [WelcomeController::class, 'watch'])->name('watch');
+});
 
 Route::get('tmdb', [TMDBController::class, 'index'])->name('tmdb');
 

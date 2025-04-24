@@ -27,34 +27,47 @@
     contain-intrinsic-size: 3000px 1500px
   }
 </style>
-<link rel="preload" href="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}" as="image"
-  type="image/webp" imagesrcset="{{ asset('assets/wp-content/uploads/moviesverse.webp') }} 1x, {{ asset('assets/wp-content/uploads/moviesverse.webp') }} 2x"
+<link type="image/webp" href="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}" rel="preload"
+  as="image"
+  imagesrcset="{{ asset('assets/wp-content/uploads/moviesverse.webp') }} 1x, {{ asset('assets/wp-content/uploads/moviesverse.webp') }} 2x"
   imagesizes="(max-width: 3000px) 100vw, 3000px">
 
 <title>@yield('title', config('app.name'))</title>
 
-<meta name="description" content="{{ $movie }}">
-<meta name="keywords" content="MoviesNext, Movies, Trailers, Watchlists, Entertainment, Daily Releases">
+<meta name="description"
+  content="{{ $video->description ?? 'MoviesNext – Stream, download, and explore the latest movies and trailers. Create watchlists and stay updated with daily entertainment releases.' }}">
+<meta name="keywords"
+  content="{{ $video->keywords ??'MoviesNext, Movies, Trailers, Watchlists, Entertainment, Daily Releases, Latest Movies, Trending Trailers, Movie Downloads, Stream Movies Online, Watch HD Movies, New Movie Releases, Upcoming Movies, Popular Movies, Movie Watchlist, Movie Streaming Website, Action Movies, Romantic Movies, Comedy Movies, Horror Movies, Drama Movies, Sci-Fi Films, Thriller Movies, Bollywood Movies, Hollywood Movies, Dubbed Movies, Create Movie Watchlist, Daily Movie Updates, HD Movie Trailers, Full Movie Collection, Smart Movie Search, Personalized Recommendations, User Ratings and Reviews, Mobile-Friendly Streaming, Fast Movie Downloads, Safe & Secure Movie Access, Watch Anywhere Anytime, Entertainment Hub, Movie Discovery Platform, Best Movie Platform 2025, Watch Free Movie Trailers, Explore Movies by Genre, Add to Watch Later, Movie Release Calendar, Movie News and Updates, Movie Reviews and Ratings, Movie Recommendations, Movie Genres, Movie Collections, Movie Trailers, Movie Streaming, Movie Downloads, MoviesNext Features' }}">
+<link href="{{ url()->current() }}" rel="canonical">
+
 <meta name="author" content="EliteDev Emon">
 
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
-<meta property="og:title"
-  content="{{ $movie->title ?? config('app.name') }}">
+<meta property="og:title" content="{{ $video->meta_title ?? config('app.name') }}">
 <meta property="og:description"
-  content="MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in">
-<meta property="og:url" content="">
-<meta property="og:site_name"
-  content="MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in">
-<meta property="og:image" content="">
-<meta property="og:image:width" content="27">
-<meta property="og:image:height" content="27">
-<meta property="og:image:type" content="image/webp">
+  content="{{ $video->short_description ?? 'MoviesNext – Stream, download, and explore the latest movies and trailers. Create watchlists and stay updated with daily entertainment releases.' }}">
+<meta property="og:site_name" content="{{ config('app.name') }}">
+<meta property="og:site" content="{{ config('app.name') }}">
+<meta property="og:url" content="{{ url()->current() }}">
+
+
+<meta property="og:image" content="{{ asset(!empty($video->thumbnail) ? $video->thumbnail : 'assets/wp-content/uploads/moviesverse.webp') }}">
+<meta property="og:image:secure_url"
+  content="{{ asset(!empty($video->thumbnail) ? $video->thumbnail : 'assets/wp-content/uploads/moviesverse.webp') }}">
+
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{{ config('app.name') }}">
+<meta name="twitter:title" content="{{ $video->meta_title ?? config('app.name') }}">
+<meta name="twitter:description"
+  content="{{ $video->short_description ?? 'MoviesNext – Stream, download, and explore the latest movies and trailers. Create watchlists and stay updated with daily entertainment releases.' }}">
+<meta name="twitter:image"
+  content="{{ asset(!empty($video->thumbnail) ? $video->thumbnail : 'assets/wp-content/uploads/moviesverse.webp') }}">
+<meta name="twitter:site" content="{{ config('app.name') }}">
+
 <!-- schema -->
-{{-- <script type="application/ld+json"
-    class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://moviesmod.com.pl/","url":"https://moviesmod.com.pl/","name":"MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in","isPartOf":{"@id":"https://moviesmod.com.pl/#website"},"about":{"@id":"https://moviesmod.com.pl/#/schema/person/2a9ba79dc3c18188e96396ae471f06bf"},"description":"MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in","breadcrumb":{"@id":"https://moviesmod.com.pl/#breadcrumb"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://moviesmod.com.pl/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://moviesmod.com.pl/#website","url":"https://moviesmod.com.pl/","name":"Movies Mod | MoviesMod 2024, MoviesMod Original Site, MoviesMod Official","description":"MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in","publisher":{"@id":"https://moviesmod.com.pl/#/schema/person/2a9ba79dc3c18188e96396ae471f06bf"},"alternateName":"MoviesMod | Movies Mod","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://moviesmod.com.pl/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":["Person","Organization"],"@id":"https://moviesmod.com.pl/#/schema/person/2a9ba79dc3c18188e96396ae471f06bf","name":"admin","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://moviesmod.com.pl/#/schema/person/image/","url":"https://moviesmod.com.pl/wp-content/uploads/moviesverse.webp","contentUrl":"https://moviesmod.com.pl/wp-content/uploads/moviesverse.webp","width":27,"height":27,"caption":"admin"},"logo":{"@id":"https://moviesmod.com.pl/#/schema/person/image/"},"sameAs":["https://moviesmod.com.pl"],"publishingPrinciples":"https://moviesmod.com.pl/announcements/","ownershipFundingInfo":"https://moviesmod.com.pl/contact-us/","actionableFeedbackPolicy":"https://moviesmod.com.pl/dmca/","correctionsPolicy":"https://moviesmod.com.pl/request-us/","ethicsPolicy":"https://moviesmod.com.pl/dmca/","diversityPolicy":"https://moviesmod.com.pl/dmca/","diversityStaffingReport":"https://moviesmod.com.pl/site-disclaimer/"}]}
-  </script> --}}
+@include('layouts.partials.schema')
+
 <meta name="google-site-verification" content="x4mpEwAhzt77vg7PstzL6br7vutaYKEIW8K9IONf1PE">
 <!-- / Yoast SEO Premium plugin. -->
 
@@ -74,8 +87,8 @@
 <!-- wp-block-library-theme-inline-css-->
 @include('layouts.partials.wp-block-library-theme-inline-css')
 <link id='mediaelement-css' type='text/css'
-  href='{{ asset('assets/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css') }}' rel='stylesheet'
-  media='all'>
+  href='{{ asset('assets/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css') }}'
+  rel='stylesheet' media='all'>
 <link id='wp-mediaelement-css' type='text/css'
   href='{{ asset('assets/wp-includes/js/mediaelement/wp-mediaelement.min.css') }}' rel='stylesheet'
   media='all'>
@@ -163,4 +176,6 @@
 <!--custom-css-2-->
 @include('layouts.partials.custom-css-2')
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+  crossorigin="anonymous">

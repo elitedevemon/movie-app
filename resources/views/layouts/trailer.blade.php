@@ -1,3 +1,6 @@
+@php
+  $trailer = \App\Models\Trailer::whereStatus(true)->latest('updated_at')->first();
+@endphp
 <center>
   <strong>
     <div class="alert">

@@ -33,6 +33,10 @@
       <a class="toggle-mobile-menu" id="pull" href="#">Menu</a>
       <nav class="navigation clearfix">
         <ul class="menu clearfix" id="menu-home">
+
+          @php
+            $menus = \App\Models\Menu::with('sub_menus')->get();
+          @endphp
           @foreach ($menus as $menu)
             <li
               class="menu-item menu-item-type-taxonomy menu-item-object-category {{ $menu->sub_menus->count() ? 'menu-item-has-children' : '' }}">

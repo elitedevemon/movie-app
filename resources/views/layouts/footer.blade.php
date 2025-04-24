@@ -38,7 +38,7 @@
     }
 
     .mtsnb .mtsnb-container {
-      width: 1080px;
+      width: 100%;
       font-size: 15px;
       padding: 15px 34px 5px 34px;
     }
@@ -54,7 +54,11 @@
   <div class="mtsnb-container-outer">
     <div class="mtsnb-container mtsnb-clearfix">
       <marquee class="mtsnb-button-type mtsnb-content" behavior="scroll" direction="rtl"
-        onmouseover="this.stop()" onmouseout="this.start()">
+        onmouseover="this.stop()" onmouseout="this.start()" touchover="this.stop()"
+        touchout="this.start()">
+        @php
+          $newses = \App\Models\News::orderByDesc('id')->limit(5)->whereStatus(true)->get();
+        @endphp
         @foreach ($newses as $news)
           <span class="mtsnb-text">
             <b class="bg-primary rounded-circle p-2">{{ $news->news_category }}:</b> {{ $news->news }}
