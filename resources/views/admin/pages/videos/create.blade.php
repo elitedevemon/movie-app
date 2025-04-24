@@ -112,7 +112,7 @@
           <div class="col-md-1">
             <label>IMDB Rating</label>
             <input class="form-control @error('imdb_rating') is-invalid @enderror" name="imdb_rating"
-              type="number" value="{{ old('imdb_rating') }}">
+              type="number" step="0.01" value="{{ old('imdb_rating') }}">
           </div>
           <div class="col-md-6">
             <label>Movie Type</label>

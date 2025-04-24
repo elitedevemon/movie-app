@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Menu;
 use App\Models\News;
 use App\Models\Trailer;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -15,6 +16,7 @@ class WelcomeController extends Controller
     $menus = Menu::with('sub_menus')->get();
     $trailer = Trailer::whereStatus(true)->latest('updated_at')->first();
     $categories = Category::where('status', true)->orderByDesc('id')->get();
-    return view("welcome", compact(["categories","menus", 'newses', 'trailer']));
+    $videos = Video::where('status', true)->orderByDesc('id')->limit(10)->get();
+    return view("welcome", compact(["categories","menus", 'newses', 'trailer', 'videos']));
   }
 }

@@ -32,7 +32,7 @@ class VideoStoreRequest extends FormRequest
       'country' => 'required',
       'age_restriction' => 'required',
       'production_status' => 'required|in:released,upcoming,post-production',
-      'imdb_rating' => 'nullable|integer',
+      'imdb_rating' => 'nullable|numeric|min:0|max:10',
       'duration' => 'nullable|integer',
       'type' => 'nullable|in:action,adventure,comedy,crime,drama,fantasy,horror,mystery,romance,sci-fi,thriller,adult,anime',
       'budget' => 'nullable|integer',

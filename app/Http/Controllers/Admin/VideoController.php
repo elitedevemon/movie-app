@@ -122,16 +122,22 @@ class VideoController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, string $id)
+  public function update(Request $request, Video $video)
   {
-    //
+    return $video;
   }
 
   /**
    * Remove the specified resource from storage.
    */
-  public function destroy(string $id)
+  public function destroy(Video $video)
   {
-    //
+    try {
+      $video->delete();
+      return back()->with('success', __('Video deleted successfully!'));
+    } catch (\Throwable $th) {
+      // throw $th;
+      return back()->with('error', __('Something went wrong!'. $th->getMessage()));
+    }
   }
 }

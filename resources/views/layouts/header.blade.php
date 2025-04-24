@@ -2,39 +2,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link href="" rel="profile">
+<link href="https://www.facebook.com/elitedevemon" rel="profile">
 <meta name='admaven-placement' content="BrHUGqTrG">
 
 <link type="image/x-icon" href="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}" rel="icon">
 
-<meta name="msapplication-TileImage" content="">
+<meta name="msapplication-TileImage" content="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}">
 <link href="{{ asset('assets/wp-content/uploads/cropped-moviesverse-180x180.webp') }}"
   rel="apple-touch-icon-precomposed">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<link href="" rel="prefetch">
-<link href="" rel="prerender">
+{{-- <link href="" rel="prefetch">
+<link href="" rel="prerender"> --}}
 
 <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'>
+<meta name="googlebot" content="index, follow">
+<meta name="googlebot-news" content="index, follow">
+
 <style>
   img:is([sizes="auto" i],
   [sizes^="auto," i]) {
     contain-intrinsic-size: 3000px 1500px
   }
 </style>
-<script type="text/javascript">
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js');
-</script>
-<title>MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in</title>
-<meta name="description"
-  content="MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in">
+<link rel="preload" href="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}" as="image"
+  type="image/webp" imagesrcset="{{ asset('assets/wp-content/uploads/moviesverse.webp') }} 1x, {{ asset('assets/wp-content/uploads/moviesverse.webp') }} 2x"
+  imagesizes="(max-width: 3000px) 100vw, 3000px">
+
+<title>@yield('title', config('app.name'))</title>
+
+<meta name="description" content="{{ $movie }}">
+<meta name="keywords" content="MoviesNext, Movies, Trailers, Watchlists, Entertainment, Daily Releases">
+<meta name="author" content="EliteDev Emon">
 
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title"
-  content="MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in">
+  content="{{ $movie->title ?? config('app.name') }}">
 <meta property="og:description"
   content="MoviesMod &#8211; MoviesFlix | TheMoviesverse | TheMoviesMod | TopMovies | ModList.in">
 <meta property="og:url" content="">
