@@ -267,7 +267,7 @@
                 </div>
                 <div class="card-body p-2">
                   <p class="card-text card-text-title"
-                    style="text-align: center; font-weight: bold; font-family: 'Alif';">{{ $video->title }}
+                    style="text-align: center; font-size: 15px; font-family: 'Alif';">{{ $video->title }}
                   </p>
                 </div>
               </div>

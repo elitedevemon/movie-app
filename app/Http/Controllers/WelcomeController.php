@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
-  public function index(){
+  public function index()
+  {
     $newses = News::orderByDesc("id")->limit(5)->whereStatus(true)->get();
     $trailer = Trailer::whereStatus(true)->latest('updated_at')->first();
     $categories = Category::where('status', true)->orderByDesc('id')->get();
@@ -20,8 +21,26 @@ class WelcomeController extends Controller
   }
 
 
-  public function check(Video $video){
-    // return json_decode($video->keyword);
-    return view('pages.check-video', compact('video'));
+  public function check(Video $video)
+  {
+    $categories = json_decode($video->category, true);
+
+    $videos = collect(); // Start with empty collection
+
+    foreach ($categories as $category) {
+      $related = Video::where('status', true)
+        ->where('id', '!=', $video->id)
+        ->whereJsonContains('category', $category)
+        ->orderByDesc('id')
+        ->limit(10)
+        ->get();
+
+      $videos = $videos->merge($related);
+    }
+
+    // Remove duplicate videos by 'id'
+    $related_videos = $videos->unique('id')->take(10)->values();
+
+    return view('pages.check-video', compact(['video', 'related_videos']));
   }
 }

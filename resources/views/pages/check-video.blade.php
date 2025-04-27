@@ -152,5 +152,9 @@
       background-color: #47A8F5;
       border-color: #bce8f1;
     }
+
+    .sidebar.c-4-12 {
+      max-width: 100% !important;
+    }
   </style>
 @endpush

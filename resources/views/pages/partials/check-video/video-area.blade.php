@@ -38,11 +38,6 @@
           </strong> </span>
         Subtitles</strong>. Click on the Download links below to proceed.
       </p>
-      <p><strong><span style="color: #008000;">Movies Next </span></strong><em>is The Best
-          Website/Platform For Bollywood, Hollywood and Other HD Movies. We Provide Direct Google Drive
-          Download Links &amp; Terabox live streaming and download For Fast And Secure Downloading/Streaming.
-          Just Click On Download Button And Follow the next
-          Steps To Download or Watch Movies Online For Free.</em></p>
       <div class="imdbwp imdbwp--movie dark">
         <div class="imdbwp__thumb">
           <img class="imdbwp__img" data-layzr="{{ asset($video->thumbnail) }}"
@@ -90,8 +85,9 @@
         <li><strong>Format:</strong> MP4</li>
       </ul>
       <h2><span style="color: #008080;">Storyline: </span></h2>
-      <p class="sc-3ac15c8d-3 bMUzwm" data-testid="plot"><span class="sc-3ac15c8d-2 fXTzFP"
-          data-testid="plot-xl" role="presentation">{{ $video->description }}</span></p>
+      <p class="px-2">
+        {{ $video->description }}
+      </p>
       <h2><span style="color: #008080;">Screenshots: </span></h2>
       <p>
         <img data-layzr="{{ asset($video->screenshot) }}" src="{{ asset($video->screenshot) }}"
