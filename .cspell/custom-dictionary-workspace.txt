@@ -1,9 +1,11 @@
 # Custom Dictionary Words
 Aclonica
+adsbox
 Alef
 Bluray
 bottomad
 Breedlove
+chromewebdata
 Chugong
 cloudbold
 colombiana

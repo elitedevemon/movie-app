@@ -16,7 +16,7 @@ class WelcomeController extends Controller
     $newses = News::orderByDesc("id")->limit(5)->whereStatus(true)->get();
     $trailer = Trailer::whereStatus(true)->latest('updated_at')->first();
     $categories = Category::where('status', true)->orderByDesc('id')->get();
-    $videos = Video::where('status', true)->orderByDesc('id')->limit(10)->get();
+    $videos = Video::where('status', true)->where('production_status', 'released')->orderByDesc('id')->limit(10)->get();
     return view("welcome", compact(["categories", 'newses', 'trailer', 'videos']));
   }
 
@@ -24,6 +24,12 @@ class WelcomeController extends Controller
   public function check(Video $video)
   {
     $categories = json_decode($video->category, true);
+
+    // get all categories
+    $category_values = Category::where('status', true)
+      ->whereIn('id', $categories)
+      ->orderByDesc('id')
+      ->get();
 
     $videos = collect(); // Start with empty collection
 
@@ -39,8 +45,9 @@ class WelcomeController extends Controller
     }
 
     // Remove duplicate videos by 'id'
-    $related_videos = $videos->unique('id')->take(10)->values();
+    $related_videos = $videos->unique('id')->take(8)->values();
 
-    return view('pages.check-video', compact(['video', 'related_videos']));
+
+    return view('pages.check-video', compact(['video', 'related_videos', 'category_values']));
   }
 }

@@ -1,20 +1,22 @@
 <aside class="sidebar c-4-12 mts-sidebar-sidebar" id="sidebar" role="complementary">
   <div class="widget widget_cool_tag_cloud" id="cool_tag_cloud-5">
-    <h3 class="widget-title">CATEGORIES</h3>
-    <div class="cool-tag-cloud">
-      <div class="cloudbold">
-        <div class="animation">
-          <div class="ctcblack">
-            <div class="ctcleft">
-              <div class="verdana" style="text-transform:none!important;">
-                <a class="tag-cloud-link tag-link-43 ctc-active tag-link-position-1" href=""
-                  style="font-size: 10px;">1Gb</a>
+    <h3 class="widget-title">RELATED CATEGORIES</h3>
+    @foreach ($category_values as $category)
+      <div class="cool-tag-cloud">
+        <div class="cloudbold">
+          <div class="animation">
+            <div class="ctcblack">
+              <div class="ctcleft">
+                <div class="verdana" style="text-transform:none!important;">
+                  <a class="tag-cloud-link tag-link-43 ctc-active tag-link-position-1" href="{{ route('video-category.show', $category->slug) }}"
+                    style="font-size: 10px;">{{ $category->name }}</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    @endforeach
   </div>
   <div class="widget widget_mts_popular_posts_widget vertical-small" id="mts_popular_posts_widget-17">
     <h3 class="widget-title">Popular Posts</h3>
