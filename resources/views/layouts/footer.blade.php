@@ -353,5 +353,17 @@
       }).then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.error("Visitor logging failed", err));
+
+    // track traffic source
+    fetch("{{ route('track-visitor-using-share-source', $video->id ?? null) }}", {
+      method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({})
+      }).then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error("Visitor logging failed", err));
   };
 </script>

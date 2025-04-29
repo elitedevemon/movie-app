@@ -13,6 +13,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
     // analytics routes
     Route::prefix('analytics')->name('analytics.')->group(function() {
       Route::get('/visitor-by-country', [AdminController::class, 'visitorByCountry'])->name('visitor_by_country');
+      Route::get('social-media-share-analytics', [AdminController::class, 'socialMediaShareAnalytics'])->name('social-media-share-analytics');
     });
 
     // menus routes

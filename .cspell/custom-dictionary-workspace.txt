@@ -12,6 +12,7 @@ colombiana
 Colombiana
 ctcblack
 ctcleft
+famicons
 fontawesome
 getdownload
 googlebot

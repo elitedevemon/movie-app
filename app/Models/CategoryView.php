@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class CategoryView extends Model
 {
-    //
+  protected $guarded = [];
 }

@@ -61,6 +61,35 @@
       ]
     }
   </script>
+
+  <!-- track user by country -->
+  <script>
+    window.addEventListener('load', function() {
+      // track page views
+      fetch("{{ route('track-visitor-by-page-view', $video->slug) }}", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+          },
+          body: JSON.stringify({})
+        }).then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error("Visitor logging failed", err));
+
+        // track category views
+      fetch("{{ route('track-visitor-by-category-view', $video->slug) }}", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+          },
+          body: JSON.stringify({})
+        }).then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error("Visitor logging failed", err));
+    })
+  </script>
 @endpush
 
 @push('styles')

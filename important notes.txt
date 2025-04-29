@@ -8,3 +8,4 @@
     top rated     = according imdb rating
     trending      = according page view counter + imdb rating
     upcoming      = production_status (upcoming)
+    popular posts = page view counter + category view counter

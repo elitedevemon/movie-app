@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class PageViewByCountry extends Model
 {
-    //
+  protected $guarded = [];
 }

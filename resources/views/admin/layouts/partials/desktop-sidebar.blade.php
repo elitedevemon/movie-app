@@ -37,13 +37,22 @@
 
       <!-- analytics controller -->
       <div class="menu-header">ANALYTICS</div>
-      <!-- menus -->
-      <div class="menu-item {{ Route::is('admin.analytics*') ? 'active' : '' }}">
+      <!-- visitors by country -->
+      <div class="menu-item {{ Route::is('admin.analytics.visitor_by_country') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.analytics.visitor_by_country') }}">
           <span class="menu-icon">
             <iconify-icon icon="mdi:world"></iconify-icon>
           </span>
           <span class="menu-text">VISITORS BY COUNTRY</span>
+        </a>
+      </div>
+      <!-- visitors social media -->
+      <div class="menu-item {{ Route::is('admin.analytics.social-media-share-analytics') ? 'active' : '' }}">
+        <a class="menu-link" href="{{ route('admin.analytics.social-media-share-analytics') }}">
+          <span class="menu-icon">
+            <iconify-icon icon="famicons:share-social-outline"></iconify-icon>
+          </span>
+          <span class="menu-text">SOCIAL MEDIA SHARE</span>
         </a>
       </div>
       <!-- categories -->
