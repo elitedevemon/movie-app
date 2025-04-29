@@ -54,8 +54,7 @@
   <div class="mtsnb-container-outer">
     <div class="mtsnb-container mtsnb-clearfix">
       <marquee class="mtsnb-button-type mtsnb-content" behavior="scroll" direction="rtl"
-        onmouseover="this.stop()" onmouseout="this.start()" touchover="this.stop()"
-        touchout="this.start()">
+        onmouseover="this.stop()" onmouseout="this.start()" touchover="this.stop()" touchout="this.start()">
         @php
           $newses = \App\Models\News::orderByDesc('id')->limit(5)->whereStatus(true)->get();
         @endphp
@@ -339,4 +338,20 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+<!-- track user by country -->
+<script>
+  window.onload = function() {
+    fetch("{{ route('track-visitor-by-country') }}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({})
+      }).then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error("Visitor logging failed", err));
+  };
 </script>

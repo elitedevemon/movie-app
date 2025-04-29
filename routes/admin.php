@@ -10,6 +10,11 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
   Route::prefix('dashboard')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
+    // analytics routes
+    Route::prefix('analytics')->name('analytics.')->group(function() {
+      Route::get('/visitor-by-country', [AdminController::class, 'visitorByCountry'])->name('visitor_by_country');
+    });
+
     // menus routes
     Route::resource('menus', MenuController::class);
     Route::controller(MenuController::class)->prefix('submenus')->name('submenus.')->group(function () {

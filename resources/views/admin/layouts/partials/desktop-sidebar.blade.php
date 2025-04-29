@@ -35,6 +35,48 @@
         </div>
       </div>
 
+      <!-- analytics controller -->
+      <div class="menu-header">ANALYTICS</div>
+      <!-- menus -->
+      <div class="menu-item {{ Route::is('admin.analytics*') ? 'active' : '' }}">
+        <a class="menu-link" href="{{ route('admin.analytics.visitor_by_country') }}">
+          <span class="menu-icon">
+            <iconify-icon icon="mdi:world"></iconify-icon>
+          </span>
+          <span class="menu-text">VISITORS BY COUNTRY</span>
+        </a>
+      </div>
+      <!-- categories -->
+      <div class="menu-item {{ Route::is('admin.categories*') ? 'active' : '' }}">
+        <a class="menu-link" href="{{ route('admin.categories.index') }}">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:category-outline-rounded"></iconify-icon>
+          </span>
+          <span class="menu-text">CATEGORY</span>
+        </a>
+      </div>
+      <div class="menu-item has-sub">
+        <a class="menu-link" href="#">
+          <span class="menu-icon">
+            <iconify-icon icon="material-symbols:trail-length-medium-outline"></iconify-icon>
+          </span>
+          <span class="menu-text">TRAILER</span>
+          <span class="menu-caret"><b class="caret"></b></span>
+        </a>
+        <div class="menu-submenu">
+          <div class="menu-item">
+            <a class="menu-link" href="form_elements.html">
+              <span class="menu-text">TRAILER LIST</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="form_plugins.html">
+              <span class="menu-text">ADD NEW TRAILER</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <!-- frontend controller -->
       <div class="menu-header">FRONTEND CONTROLLER</div>
       <!-- menus -->

@@ -8,6 +8,7 @@
 <link type="image/x-icon" href="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}" rel="icon">
 
 <meta name="msapplication-TileImage" content="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="{{ asset('assets/wp-content/uploads/cropped-moviesverse-180x180.webp') }}"
   rel="apple-touch-icon-precomposed">
 <meta name="viewport" content="width=device-width, initial-scale=1">

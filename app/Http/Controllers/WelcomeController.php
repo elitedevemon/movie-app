@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Menu;
 use App\Models\News;
 use App\Models\Trailer;
 use App\Models\Video;
-use Illuminate\Http\Request;
+
 
 class WelcomeController extends Controller
 {
