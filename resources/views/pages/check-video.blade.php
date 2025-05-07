@@ -93,18 +93,6 @@
 @endpush
 
 @push('styles')
-  <style>
-    @media (max-width: 579px) {
-      .featured-thumbnail {
-        float: left;
-        max-width: 75%;
-        max-height: 100%;
-        display: block;
-        position: relative;
-        width: 100%;
-      }
-    }
-  </style>
 
   <style>
     .button {
@@ -184,6 +172,21 @@
 
     .sidebar.c-4-12 {
       max-width: 100% !important;
+    }
+
+    @media (max-width: 576px) {
+      .featured-thumbnail {
+        float: left;
+        max-width: 75%;
+        max-height: 100%;
+        display: block;
+        position: relative;
+        width: 100%;
+      }
+
+      #video_trailer {
+        max-height: 215px;
+      }
     }
   </style>
 @endpush

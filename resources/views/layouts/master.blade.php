@@ -12,10 +12,10 @@
       
       <!-- main content -->
       @yield('main-content')
-      
-      @include('layouts.enable-javascript')
     </div><!--.main-container-->
+      
     @include('layouts.footer')
+      
     @stack('scripts')
   </body>
 

@@ -10,6 +10,8 @@
     </div>
   </header><!--.headline_area-->
   <div class="post-single-content box mark-links entry-content" style="color: #a1a1aa !important;">
+    <iframe class="w-100" id="video_trailer" height="315" src="{{ $video?->trailer_url }}" title="{{ $video->title }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
     <div class="thecontent clearfix">
 

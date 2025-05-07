@@ -14,12 +14,11 @@
             <thead>
               <tr>
                 <th>SI</th>
-                <th>Thumbnail</th>
-                <th>Movie Title</th>
-                <th>Slug</th>
-                <th>Description</th>
-                <th>Posts</th>
-                <th>Actions</th>
+                <th style="width: 5%">Thumbnail</th>
+                <th style="width: 25%">Movie Title</th>
+                <th style="width: 50%">Description</th>
+                <th style="width: 5%">Posts</th>
+                <th style="width: 10%">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -27,12 +26,10 @@
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>
-                    <img class="img-fluid" src="{{ asset($video->thumbnail) }}" alt="{{ $video->name }}"
-                      style="width: 50px; height: 50px;">
+                    <img class="img-fluid" src="{{ asset($video->thumbnail) }}" alt="{{ $video->name }}">
                   </td>
                   <td>{{ $video->title }}</td>
-                  <td>{{ $video->slug }}</td>
-                  <td>{{ $video->description }}</td>
+                  <td>{{ Str::limit($video->description, 300) }}</td>
                   <td>0</td>
                   <td class="text-center">
                     <a class="btn btn-primary btn-sm" href="{{ route('admin.videos.edit', $video->id) }}">

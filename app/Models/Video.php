@@ -41,4 +41,9 @@ class Video extends Model
   {
     return $this->hasMany(Comment::class);
   }
+
+  public function pageView()
+  {
+    return $this->hasOne(PageView::class);
+  }
 }

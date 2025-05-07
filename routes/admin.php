@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\VideoController;
@@ -29,5 +30,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
 
     // videos routes
     Route::resource('videos', VideoController::class);
+
+    // article routes
+    Route::resource('articles', ArticleController::class);
   });
 });
