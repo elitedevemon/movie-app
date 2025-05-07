@@ -33,13 +33,7 @@
       {{-- Full Content --}}
       <div class="ck-editor-wrapper mb-3">
         <label class="form-label" for="article_content">Full Article Content</label>
-        <textarea class="form-control" id="article_content" name="content" rows="10" required></textarea>
-      </div>
-
-      {{-- Tags --}}
-      <div class="mb-3">
-        <label class="form-label" for="tags">Tags (comma separated)</label>
-        <input class="form-control" id="tags" name="tags" type="text">
+        <textarea class="form-control" id="article_content" name="content" rows="10"></textarea>
       </div>
 
       {{-- SEO Section --}}
@@ -57,7 +51,7 @@
 
       <div class="mb-3">
         <label class="form-label" for="seo_keywords">SEO Keywords (comma separated)</label>
-        <input class="form-control" id="seo_keywords" name="seo_keywords" type="text">
+        <textarea class="form-control" id="seo_keywords" name="seo_keywords" rows="4"></textarea>
       </div>
 
       {{-- Status --}}
@@ -100,30 +94,3 @@
     });
   </script>
 @endpush
-
-{{-- @push('styles')
-  <style>
-    .ck-editor__editable_inline {
-      min-height: 300px;
-    }
-
-    /* Fix container overflow issues */
-    .ck-editor-wrapper .ck-editor {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    /* Optional: Ensure .container doesn’t break layout */
-    .container {
-      width: 100%;
-      max-width: 100%;
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-
-    .ck.ck-editor__main>.ck-editor__editable {
-      background: none !important;
-      border-radius: 0;
-    }
-  </style>
-@endpush --}}

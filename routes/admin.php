@@ -32,6 +32,6 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
     Route::resource('videos', VideoController::class);
 
     // article routes
-    Route::resource('articles', ArticleController::class);
+    Route::resource('articles', ArticleController::class)->except('show');
   });
 });

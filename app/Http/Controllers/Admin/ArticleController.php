@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\CategoryView;
+use App\Models\PageView;
 use Illuminate\Http\Request;
+use Mews\Purifier\Facades\Purifier;
 
 class ArticleController extends Controller
 {
@@ -13,7 +16,8 @@ class ArticleController extends Controller
    */
   public function index()
   {
-    //
+    $articles = Article::latest()->get();
+    return view('admin.pages.articles.index', compact('articles'));
   }
 
   /**
@@ -29,17 +33,37 @@ class ArticleController extends Controller
    */
   public function store(Request $request)
   {
-    //
-  }
+    $request->validate([
+      'title' => 'required',
+      'thumbnail' => 'required|mimes:png,jpg,webp',
+      'short_description' => 'required',
+      'content' => 'required',
+      'seo_title' => 'required',
+      'seo_description' => 'required',
+      'seo_keywords' => 'required',
+      'status' => 'required'
+    ]);
 
-  /**
-   * Display the specified resource.
-   */
-  public function show(Article $article)
-  {
-    //
-  }
+    $thumbnail = image_process($request->file('thumbnail'), 'article_thumbnail');
 
+    try {
+      Article::create([
+        'title' => $request->title,
+        'thumbnail' => $thumbnail,
+        'short_description' => $request->short_description,
+        'content' => Purifier::clean($request->content),
+        'seo_title' => $request->seo_title,
+        'seo_description' => $request->seo_description,
+        'seo_keywords' => $request->seo_keywords,
+        'status' => $request->status
+      ]);
+
+      return redirect()->route('admin.articles.index');
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+  }
+  
   /**
    * Show the form for editing the specified resource.
    */

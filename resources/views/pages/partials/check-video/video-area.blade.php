@@ -96,10 +96,13 @@
           alt="{{ $video->title }}">
       </p>
       <div class="" style="text-align: center;">
-        @foreach ($video->download_links as $link)
+        @php
+          $download_links = collect($video->download_links);
+        @endphp
+        @foreach ($download_links->unique('quality')->values() as $link)
           <div class="my-4">
             <h4 style="text-align: center;">
-              <span style="color: #008080;">{{ $link->title }} {{ $link->quality }} [{{ $link->size }}]
+              <span style="color: #008080;">{{ $link->quality }} [{{ $link->size }}]
             </h4>
             <a class="maxbutton-1 maxbutton btn btn-primary" href="#" target="_blank"
               rel="nofollow noopener"><span class='mb-text'>Download Links</span></a>

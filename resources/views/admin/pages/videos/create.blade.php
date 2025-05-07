@@ -231,12 +231,7 @@
           <div class="row g-3 download-link-row mb-3">
             <div class="col-md-11">
               <div class="row">
-                <div class="col-md-6">
-                  <input class="form-control @error('download_link.0.title') is-invalid @enderror"
-                    name="download_link[0][title]" type="text" value="{{ old('download_link.0.title') }}"
-                    placeholder="Title" required>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <input class="form-control @error('download_link.0.url') is-invalid @enderror"
                     name="download_link[0][url]" type="text" value="{{ old('download_link.0.url') }}"
                     placeholder="Download Link URL" required>
@@ -253,9 +248,11 @@
                       placeholder="Size" required>
                   </div>
                   <div class="col-md-4">
-                    <input class="form-control @error('download_link.0.quality') is-invalid @enderror"
-                      name="download_link[0][quality]" type="text"
-                      value="{{ old('download_link.0.quality') }}" placeholder="Quality">
+                    <select class="form-select @error('download_link.0.quality') is-invalid @enderror" name="download_link[0][quality]" id="">
+                      <option value="1080p">1080p</option>
+                      <option value="720p">720p</option>
+                      <option value="480p">480p</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -327,13 +324,10 @@
       $('#add-download-link').click(function() {
         const newLink = `
                 <div class="row g-3 mt-3 mb-3 download-link-row">
+                  <hr class="border-2 border-danger"/>
                     <div class="col-md-11">
                       <div class="row">
-                        <div class="col-md-6">
-                          <input class="form-control" name="download_link[${linkCount}][title]" type="text"
-                            placeholder="Title" required value="{{ old('download_link.${linkCount}.title') }}">
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                           <input class="form-control" name="download_link[${linkCount}][url]" type="text"
                             placeholder="Download Link URL" required value="{{ old('download_link.${linkCount}.url') }}">
                         </div>
@@ -347,8 +341,11 @@
                               placeholder="Size" required value="{{ old('download_link.${linkCount}.size') }}">
                           </div>
                           <div class="col-md-4">
-                            <input class="form-control" name="download_link[${linkCount}][quality]" type="text"
-                              placeholder="Quality" value="{{ old('download_link.${linkCount}.quality') }}">
+                              <select class="form-select @error('download_link.${linkCount}.quality') is-invalid @enderror" name="download_link[${linkCount}][quality]" id="">
+                                <option value="1080p">1080p</option>
+                                <option value="720p">720p</option>
+                                <option value="480p">480p</option>
+                              </select>
                           </div>
                         </div>
                       </div>
