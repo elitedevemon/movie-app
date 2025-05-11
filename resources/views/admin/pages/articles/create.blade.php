@@ -18,12 +18,6 @@
         <input class="form-control" id="title" name="title" type="text" required>
       </div>
 
-      {{-- Thumbnail --}}
-      <div class="mb-3">
-        <label class="form-label" for="thumbnail">Article Thumbnail</label>
-        <input class="form-control" id="thumbnail" name="thumbnail" type="file" accept="image/*" required>
-      </div>
-
       {{-- Short Description --}}
       <div class="mb-3">
         <label class="form-label" for="short_description">Short Description</label>

@@ -1,7 +1,4 @@
 <div class="single_post">
-  {{-- <div class="featured-thumbnail d-flex align-items-center justify-content-center"><img class="attachment-sociallyviral-featured size-sociallyviral-featured wp-post-image"
-      data-layzr="{{ asset($video->background_poster) }}" src="{{ asset($video->background_poster) }}"
-      alt="{{ $video->title }}"></div> --}}
   <header>
     <h1 class="title single-title entry-title px-2">{{ $video->title }}</h1>
     <div class="post-info">
@@ -68,22 +65,6 @@
         <li><strong>Duration</strong>: {{ $video->duration }}m</li>
         <li><strong>Language:</strong> {{ $video->language }}</li>
         <li><strong>Subtitle</strong>: {{ $video->subtitle_languages ?? 'No' }} </li>
-        <li><strong>Size:</strong>
-          @foreach ($video->download_links as $link)
-            <a data-wpel-link="internal" href="{{ $link->url }}">{{ $link->size }}</a>
-            @if (!$loop->last)
-              ,
-            @endif
-          @endforeach
-        </li>
-        <li><strong>Quality:</strong>
-          @foreach ($video->download_links as $link)
-            <a data-wpel-link="internal" href="{{ $link->url }}">{{ $link->quality }}</a>
-            @if (!$loop->last)
-              ,
-            @endif
-          @endforeach
-        </li>
         <li><strong>Format:</strong> MP4</li>
       </ul>
       <h2><span style="color: #008080;">Storyline: </span></h2>
@@ -104,7 +85,7 @@
             <h4 style="text-align: center;">
               <span style="color: #008080;">{{ $link->quality }} [{{ $link->size }}]
             </h4>
-            <a class="maxbutton-1 maxbutton btn btn-primary" href="#" target="_blank"
+            <a class="maxbutton-1 maxbutton btn btn-primary startBtn" onclick='startDownload("{{ $link->quality }}")' target="_blank"
               rel="nofollow noopener"><span class='mb-text'>Download Links</span></a>
           </div>
         @endforeach

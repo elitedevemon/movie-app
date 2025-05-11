@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\CategoryView;
 use App\Models\PageView;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Mews\Purifier\Facades\Purifier;
 
 class ArticleController extends Controller
@@ -35,7 +36,6 @@ class ArticleController extends Controller
   {
     $request->validate([
       'title' => 'required',
-      'thumbnail' => 'required|mimes:png,jpg,webp',
       'short_description' => 'required',
       'content' => 'required',
       'seo_title' => 'required',
@@ -44,12 +44,12 @@ class ArticleController extends Controller
       'status' => 'required'
     ]);
 
-    $thumbnail = image_process($request->file('thumbnail'), 'article_thumbnail');
+    $slug = Str::slug($request->title).time();
 
     try {
       Article::create([
         'title' => $request->title,
-        'thumbnail' => $thumbnail,
+        'slug' => $slug,
         'short_description' => $request->short_description,
         'content' => Purifier::clean($request->content),
         'seo_title' => $request->seo_title,

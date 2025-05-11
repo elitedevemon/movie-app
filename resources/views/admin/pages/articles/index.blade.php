@@ -14,9 +14,9 @@
             <thead>
               <tr>
                 <th>SI</th>
-                <th style="width: 5%">Thumbnail</th>
                 <th style="width: 25%">Title</th>
                 <th style="width: 60%">Short Description</th>
+                <th style="width: 5%">Views</th>
                 <th style="width: 10%">Actions</th>
               </tr>
             </thead>
@@ -24,11 +24,9 @@
               @foreach ($articles as $article)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>
-                    <img class="img-fluid" src="{{ asset($article->thumbnail) }}" alt="{{ $article->title }}">
-                  </td>
                   <td>{{ $article->title }}</td>
                   <td>{{ Str::limit($article->short_description, 300) }}</td>
+                  <td>0</td>
                   <td class="text-center">
                     <a class="btn btn-warning btn-sm" href="{{ route('admin.articles.edit', $article->id) }}">
                       <iconify-icon icon="ph:note-pencil-light"></iconify-icon>

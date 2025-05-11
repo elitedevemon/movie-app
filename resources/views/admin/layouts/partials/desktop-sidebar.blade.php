@@ -138,8 +138,8 @@
           <span class="menu-text">VIDEOS</span>
         </a>
       </div>
-      <div class="menu-item">
-        <a class="menu-link" href="{{ route('admin.videos.index') }}">
+      <div class="menu-item {{ Route::is('admin.articles*') ? 'active' : '' }}">
+        <a class="menu-link" href="{{ route('admin.articles.index') }}">
           <span class="menu-icon">
             <iconify-icon icon="ph:folder-duotone"></iconify-icon>
           </span>
@@ -151,28 +151,18 @@
           <span class="menu-icon">
             <iconify-icon icon="ph:open-ai-logo-duotone"></iconify-icon>
           </span>
-          <span class="menu-text">USERS (1)</span>
+          <span class="menu-text">MANAGERS</span>
           <span class="menu-caret"><b class="caret"></b></span>
         </a>
         <div class="menu-submenu">
           <div class="menu-item">
             <a class="menu-link" href="page_scrum_board.html">
-              <span class="menu-text">NEWSLETTER USER LIST</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="page_scrum_board.html">
-              <span class="menu-text">ADD USER</span>
+              <span class="menu-text">ADD MANAGER</span>
             </a>
           </div>
           <div class="menu-item">
             <a class="menu-link" href="page_scrum_board.html">
               <span class="menu-text">SEND NOTIFICATION</span>
-            </a>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link" href="page_scrum_board.html">
-              <span class="menu-text">MOVIE REQUEST (1)</span>
             </a>
           </div>
         </div>
@@ -207,6 +197,37 @@
           <div class="menu-item">
             <a class="menu-link" href="page_scrum_board.html">
               <span class="menu-text">ADD NEWS CATEGORY</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item has-sub">
+        <a class="menu-link" href="#">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:open-ai-logo-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">USERS (1)</span>
+          <span class="menu-caret"><b class="caret"></b></span>
+        </a>
+        <div class="menu-submenu">
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">NEWSLETTER USER LIST</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">ADD USER</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">SEND NOTIFICATION</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="page_scrum_board.html">
+              <span class="menu-text">MOVIE REQUEST (1)</span>
             </a>
           </div>
         </div>

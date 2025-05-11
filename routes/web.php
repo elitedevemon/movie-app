@@ -13,6 +13,9 @@ Route::prefix('video')->name('video.')->group(function(){
   Route::get('/{video:slug}', [WelcomeController::class, 'check'])->name('check');
   Route::get('watch/{video:slug}', [WelcomeController::class, 'watch'])->name('watch');
   Route::resource('comment', CommentController::class)->only(['store', 'destroy']);
+
+  // download route
+  Route::get('download/{video}/{article}/{quality}', [WelcomeController::class, 'download'])->name('download');
 });
 
 Route::get('tmdb', [TMDBController::class, 'index'])->name('tmdb');

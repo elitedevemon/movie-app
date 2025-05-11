@@ -13,7 +13,7 @@ return new class extends Migration {
     Schema::create('articles', function (Blueprint $table) {
       $table->id();
       $table->string('title');
-      $table->string('thumbnail')->nullable();
+      $table->string('slug')->unique();
       $table->mediumText('short_description')->nullable();
       $table->longText('content');
       $table->string('seo_title');
