@@ -156,7 +156,12 @@
         </a>
         <div class="menu-submenu">
           <div class="menu-item">
-            <a class="menu-link" href="page_scrum_board.html">
+            <a class="menu-link" href="{{ route('admin.manager.index') }}">
+              <span class="menu-text">MANAGER LIST</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link" href="{{ route('admin.manager.create') }}">
               <span class="menu-text">ADD MANAGER</span>
             </a>
           </div>
@@ -173,6 +178,14 @@
             <iconify-icon icon="ph:folder-duotone"></iconify-icon>
           </span>
           <span class="menu-text">TODO</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="file_manager.html">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:folder-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">FAQ</span>
         </a>
       </div>
       <div class="menu-item has-sub">

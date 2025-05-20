@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Movies Next | @yield('title', 'Dashboard')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}" type="image/x-icon">
     <meta name="description" content="">
     <meta name="author" content="">
 

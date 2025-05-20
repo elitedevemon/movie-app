@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\AdminController;
@@ -33,5 +34,12 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
 
     // article routes
     Route::resource('articles', ArticleController::class)->except('show');
+
+    // manager routes
+    Route::controller(ManagerController::class)->prefix('manager')->name('manager.')->group(function(){
+      Route::get('list-manager', 'index')->name('index');
+      Route::get('add-manager', 'addManager')->name('create');
+      Route::post('store-manager', 'storeManager')->name('store');
+    });
   });
 });
