@@ -18,6 +18,8 @@ return new class extends Migration
       $table->mediumText('feedback')->nullable();
       $table->string('rating')->nullable();
       $table->foreignId('user_id')->constrained()->onDelete('cascade');
+      $table->enum('status', ['pending', 'answered', 'rejected'])->default('pending');
+      $table->boolean('viewed')->default(false); 
       $table->timestamps();
     });
   }

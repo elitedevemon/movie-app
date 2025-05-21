@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\VideoController;
@@ -41,5 +42,9 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
       Route::get('add-manager', 'addManager')->name('create');
       Route::post('store-manager', 'storeManager')->name('store');
     });
+
+    // faq routes
+    Route::resource('faqs', FaqController::class);
+    Route::post('faqs/{id}/toggle-status', [FaqController::class, 'toggleStatus'])->name('admin.faqs.toggleStatus');
   });
 });

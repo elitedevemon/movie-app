@@ -181,7 +181,7 @@
         </a>
       </div>
       <div class="menu-item">
-        <a class="menu-link" href="file_manager.html">
+        <a class="menu-link" href="{{ route('admin.faqs.index') }}">
           <span class="menu-icon">
             <iconify-icon icon="ph:folder-duotone"></iconify-icon>
           </span>
