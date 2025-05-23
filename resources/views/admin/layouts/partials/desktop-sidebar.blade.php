@@ -615,7 +615,7 @@
         </a>
       </div>
       <div class="menu-item">
-        <a class="menu-link" href="settings.html">
+        <a class="menu-link" href="{{ route('admin.settings.index') }}">
           <span class="menu-icon">
             <iconify-icon icon="ph:gear-duotone"></iconify-icon>
           </span>

@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\HelperController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
@@ -57,5 +59,14 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
 
     // country
     Route::resource('countries', CountryController::class);
+
+    // settings
+    Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
+    Route::put('settings/update/{settings:id}', [SettingsController::class, 'update'])->name('settings.update');
+
+    // notifications
+    Route::post('notification/mark-as-read/{notification:id}', [NotificationController::class, 'markAsRead'])->name('notification.mark-as-read');
+    Route::get('notification/view-all', [NotificationController::class, 'viewAll'])->name('notification.view-all');
+    Route::post('notification/mark-all-as-read', [NotificationController::class, 'markAllAsRead'])->name('notification.mark-all-as-read');
   });
 });

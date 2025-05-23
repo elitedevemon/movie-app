@@ -5,28 +5,12 @@
     <meta charset="utf-8">
     <title>Movies Next | @yield('title', 'Dashboard')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}" type="image/x-icon">
+    <link type="image/x-icon" href="{{ asset('assets/wp-content/uploads/moviesverse.webp') }}"
+      rel="shortcut icon">
     <meta name="description" content="">
     <meta name="author" content="">
-
     @include('admin.layouts.partials.style')
     @stack('styles')
-    <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
-    <script>
-
-      // Enable pusher logging - don't include this in production
-      Pusher.logToConsole = true;
-  
-      var pusher = new Pusher('0623ac13dcbaa97ee706', {
-        cluster: 'ap2'
-      });
-  
-      var channel = pusher.subscribe('my-channel');
-      channel.bind('my-event', function(data) {
-        alert(JSON.stringify(data));
-      });
-    </script>
-
   </head>
 
   <body>
@@ -50,6 +34,78 @@
     </div>
     <!-- END #app -->
     @include('admin.layouts.partials.scripts')
+
+    <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
+    <script>
+      // Enable pusher logging - don't include this in production
+      Pusher.logToConsole = true;
+
+      var pusher = new Pusher("{{ env('PUSHER_APP_KEY') }}", {
+        cluster: "{{ env('PUSHER_APP_CLUSTER') }}",
+        forceTLS: true
+      });
+
+      var channel = pusher.subscribe('failedToGeneratePost');
+      channel.bind('generatePostEvent', function(data) {
+        let notificationId = data.message.notificationId;
+        let title = data.message.title;
+        let message = data.message.message;
+        let url = data.message.url;
+        let icon = data.message.icon;
+
+        if ($('#notification-badge').hasClass('d-none')) {
+          $('#notification-badge').removeClass('d-none');
+        }
+
+        const notificationContainer = $('#notification');
+        const maxNotifications = 8;
+
+        if (notificationContainer.children().length >= maxNotifications) {
+          // Option 1: Remove the last (oldest) notification to keep max 8
+          notificationContainer.children().last().remove();
+        }
+
+        // Now prepend the new notification
+        notificationContainer.prepend(`
+          <a class="dropdown-item d-flex align-items-center fs-10px notification-link unread" href="${url}" data-id="${notificationId}">
+            <div>
+              <div class="w-40px h-40px fs-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
+                <iconify-icon icon="material-symbols-light:${icon}"></iconify-icon>
+              </div>
+            </div>
+            <div class="text-truncate flex-1 ps-3">
+              <div class="fw-semibold text-white">${title}</div>
+              <div class="text-white text-opacity-75">${message}</div>
+              <div class="small text-white text-opacity-50">just now</div>
+            </div>
+          </a>
+        `);
+      });
+
+      // make the notification mark as read
+      $(document).on('click', '.notification-link', function(e) {
+        e.preventDefault(); // prevent immediate redirect
+
+        const url = $(this).attr('href');
+        const notificationId = $(this).data('id');
+
+        $.ajax({
+          url: '/admin/dashboard/notification/mark-as-read/' + notificationId,
+          type: 'POST',
+          data: {
+            notificationId: notificationId,
+            _token: "{{ csrf_token() }}" // required for Laravel CSRF
+          },
+          success: function(e) {
+            window.location.href = url;
+          },
+          error: function(e) {
+            // Fallback: still redirect
+            window.location.href = url;
+          }
+        });
+      });
+    </script>
     @stack('scripts')
   </body>
 

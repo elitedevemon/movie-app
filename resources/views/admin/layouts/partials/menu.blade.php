@@ -227,75 +227,34 @@
   <div class="menu-item dropdown dropdown-mobile-full">
     <a class="menu-link menu-link-icon" data-bs-toggle="dropdown" data-bs-display="static" href="#">
       <iconify-icon class="menu-icon" icon="ph:warning-duotone"></iconify-icon>
+      @if (Auth::user()->unreadNotifications->count() > 0)
+        <span class="w-5px h-5px rounded-3 bg-theme position-absolute mt-10px me-5px end-0 top-0"></span>
+      @endif
+      <span class="w-5px h-5px rounded-3 bg-theme position-absolute mt-10px me-5px d-none end-0 top-0"
+        id="notification-badge"></span>
     </a>
     <div class="dropdown-menu dropdown-menu-end fade w-300px p-0">
       <h6 class="dropdown-header fw-semibold py-2">NOTIFICATIONS</h6>
-      <a class="dropdown-item d-flex align-items-center fs-10px" href="#">
-        <div>
-          <div
-            class="w-40px h-40px fs-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
-            <iconify-icon icon="material-symbols-light:mark-email-unread-outline-sharp"></iconify-icon>
-          </div>
-        </div>
-        <div class="text-truncate flex-1 ps-3">
-          <div class="fw-semibold text-white">New email received</div>
-          <div class="text-white text-opacity-75">You have a new email from John Doe.</div>
-          <div class="small text-white text-opacity-50">2 minutes ago</div>
-        </div>
-      </a>
-      <a class="dropdown-item d-flex align-items-center fs-10px" href="#">
-        <div>
-          <div
-            class="w-40px h-40px fs-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
-            <iconify-icon icon="material-symbols-light:calendar-clock-outline-sharp"></iconify-icon>
-          </div>
-        </div>
-        <div class="text-truncate flex-1 ps-3">
-          <div class="fw-semibold text-white">Meeting reminder: Tomorrow at 9:00 AM</div>
-          <div class="text-white text-opacity-75">Don't forget your meeting with the client.</div>
-          <div class="small text-white text-opacity-50">1 hour ago</div>
-        </div>
-      </a>
-      <a class="dropdown-item d-flex align-items-center fs-10px" href="#">
-        <div>
-          <div
-            class="w-40px h-40px fs-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
-            <iconify-icon icon="material-symbols-light:checklist"></iconify-icon>
-          </div>
-        </div>
-        <div class="text-truncate flex-1 ps-3">
-          <div class="fw-semibold text-white">Task completed</div>
-          <div class="text-white text-opacity-75">The task assigned to you has been completed.</div>
-          <div class="small text-white text-opacity-50">4 hours ago</div>
-        </div>
-      </a>
-      <a class="dropdown-item d-flex align-items-center fs-10px" href="#">
-        <div>
-          <div
-            class="w-40px h-40px fs-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
-            <iconify-icon icon="material-symbols-light:mark-unread-chat-alt-outline-sharp"></iconify-icon>
-          </div>
-        </div>
-        <div class="text-truncate flex-1 ps-3">
-          <div class="fw-semibold text-white">New comment on your post</div>
-          <div class="text-white text-opacity-75">Someone commented on your recent post.</div>
-          <div class="small text-white text-opacity-50">10 hours ago</div>
-        </div>
-      </a>
-      <a class="dropdown-item d-flex align-items-center fs-10px" href="#">
-        <div>
-          <div
-            class="w-40px h-40px fs-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
-            <iconify-icon icon="material-symbols-light:update"></iconify-icon>
-          </div>
-        </div>
-        <div class="text-truncate flex-1 ps-3">
-          <div class="fw-semibold text-white">System update scheduled</div>
-          <div class="text-white text-opacity-75">There will be a system update tomorrow.</div>
-          <div class="small text-white text-opacity-50">Yesterday at 6:00 PM</div>
-        </div>
-      </a>
-      <a class="dropdown-item fs-10px d-block py-2 text-center" href="messenger.html">VIEW ALL</a>
+      <div id="notification">
+        @foreach (notification() as $notification)
+          <a class="dropdown-item d-flex align-items-center fs-10px notification-link {{ $notification->read_at ? '' : 'unread' }}"
+            href="{{ $notification->data['url'] }}" data-id="{{ $notification->data['notificationId'] }}">
+            <div>
+              <div
+                class="w-40px h-40px fs-30px d-flex align-items-center justify-content-center bg-white bg-opacity-10 text-white">
+                <iconify-icon icon="material-symbols-light:{{ $notification->data['icon'] }}"></iconify-icon>
+              </div>
+            </div>
+            <div class="text-truncate flex-1 ps-3">
+              <div class="fw-semibold text-white">{{ $notification->data['title'] }}</div>
+              <div class="text-white text-opacity-75">{{ $notification->data['message'] }}</div>
+              <div class="small text-white text-opacity-50">{{ $notification->created_at->diffForHumans() }}
+              </div>
+            </div>
+          </a>
+        @endforeach
+      </div>
+      <a class="dropdown-item fs-10px d-block py-2 text-center" href="{{ route('admin.notification.view-all') }}">VIEW ALL</a>
     </div>
   </div>
   <div class="menu-item dropdown">
