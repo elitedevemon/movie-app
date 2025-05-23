@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\HelperController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\VideoController;
@@ -46,5 +48,14 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
     // faq routes
     Route::resource('faqs', FaqController::class);
     Route::post('faqs/{id}/toggle-status', [FaqController::class, 'toggleStatus'])->name('admin.faqs.toggleStatus');
+
+    // helpers routes
+    Route::get('helpers', [HelperController::class, 'index'])->name('helpers.index');
+    Route::post('helpers/reply/{helper:id}', [HelperController::class, 'reply'])->name('helpers.reply');
+    Route::post('helpers/reject/{helper:id}', [HelperController::class, 'reject'])->name('helpers.reject');
+
+
+    // country
+    Route::resource('countries', CountryController::class);
   });
 });

@@ -188,6 +188,22 @@
           <span class="menu-text">FAQ</span>
         </a>
       </div>
+      <div class="menu-item">
+        <a class="menu-link" href="{{ route('admin.helpers.index') }}">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:folder-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">HELPERS</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link" href="{{ route('admin.countries.index') }}">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:folder-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">COUNTRY</span>
+        </a>
+      </div>
       <div class="menu-item has-sub">
         <a class="menu-link" href="#">
           <span class="menu-icon">

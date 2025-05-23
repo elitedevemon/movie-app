@@ -90,6 +90,7 @@ srcset
 Stevebauman
 summernote
 tableofcontents
+tablist
 Taito
 terabox
 textwidget
