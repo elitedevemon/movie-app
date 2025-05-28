@@ -106,6 +106,51 @@
         });
       });
     </script>
+
+    <!-- push notification -->
+    <script>
+      navigator.serviceWorker.register("{{ asset('service-worker.js') }}");
+
+      window.onload = function() {
+        Notification.requestPermission().then((permission) => {
+          if (permission === 'granted') {
+            navigator.serviceWorker.ready.then((sw) => {
+              sw.pushManager.getSubscription().then((subscription) => {
+                if (subscription) {
+                  saveSubscription(subscription.toJSON());
+                } else {
+                  sw.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: '{{ env('VAPID_PUBLIC_KEY') }}'
+                  }).then((subscription) => {
+                    console.log('User subscribed to push notifications:', subscription);
+                    saveSubscription(subscription.toJSON());
+                  })
+                }
+              })
+            })
+          }
+        })
+      }
+
+      function saveSubscription(subscription) {
+        $.ajax({
+          url: "{{ route('admin.store.subscription') }}",
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({
+            subscription: subscription,
+            _token: '{{ csrf_token() }}'
+          }),
+          success: function(res) {
+            console.log('Subscription saved.', res);
+          },
+          error: function(err) {
+            console.error('Error:', err);
+          }
+        });
+      }
+    </script>
     @stack('scripts')
   </body>
 

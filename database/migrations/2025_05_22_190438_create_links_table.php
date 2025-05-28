@@ -16,7 +16,7 @@ return new class extends Migration
       $table->foreignId('user_id')->constrained()->onDelete('cascade');
       $table->foreignId('video_id')->constrained()->onDelete('cascade');
       $table->string('platform')->nullable();
-      $table->string('masked_link')->nullable();
+      $table->string('masked_link_id')->nullable()->unique();
       $table->string('real_link')->nullable();
       $table->timestamps();
     });

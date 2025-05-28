@@ -17,6 +17,7 @@
     "laravel/tinker": "^2.9",
     "laravel/ui": "^4.6",
     "mews/purifier": "^3.4",
+    "minishlink/web-push": "^9.0",
     "pusher/pusher-php-server": "^7.2",
     "stevebauman/location": "^7.5"
   },

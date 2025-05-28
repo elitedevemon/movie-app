@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\HelperController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\PushNotificationController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\AdminController;
@@ -68,5 +69,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
     Route::post('notification/mark-as-read/{notification:id}', [NotificationController::class, 'markAsRead'])->name('notification.mark-as-read');
     Route::get('notification/view-all', [NotificationController::class, 'viewAll'])->name('notification.view-all');
     Route::post('notification/mark-all-as-read', [NotificationController::class, 'markAllAsRead'])->name('notification.mark-all-as-read');
+
+    // push notification
+    Route::post('store-subscription', [PushNotificationController::class, 'storeSubscription'])->name('store.subscription');
   });
 });
