@@ -204,6 +204,14 @@
           <span class="menu-text">COUNTRY</span>
         </a>
       </div>
+      <div class="menu-item">
+        <a class="menu-link" href="{{ route('admin.future-planning.index') }}">
+          <span class="menu-icon">
+            <iconify-icon icon="ph:folder-duotone"></iconify-icon>
+          </span>
+          <span class="menu-text">FUTURE PLANNING</span>
+        </a>
+      </div>
       <div class="menu-item has-sub">
         <a class="menu-link" href="#">
           <span class="menu-icon">

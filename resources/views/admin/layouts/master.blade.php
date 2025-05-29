@@ -14,7 +14,6 @@
   </head>
 
   <body>
-    @include('admin.layouts.partials.loader')
 
     <!-- BEGIN #app -->
     <div class="app" id="app">

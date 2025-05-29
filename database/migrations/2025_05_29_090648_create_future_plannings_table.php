@@ -11,12 +11,12 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::create('ai_posts', function (Blueprint $table) {
+    Schema::create('future_plannings', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('user_id')->constrained()->onDelete('cascade');
-      $table->foreignId('video_id')->constrained()->onDelete('cascade');
-      $table->string('platform')->nullable();
-      $table->longText('post')->nullable();
+      $table->string('title')->nullable();
+      $table->date('target_date')->nullable();
+      $table->mediumText('plan_description')->nullable();
+      $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');
       $table->timestamps();
     });
   }
@@ -26,6 +26,6 @@ return new class extends Migration
    */
   public function down(): void
   {
-    Schema::dropIfExists('ai_posts');
+    Schema::dropIfExists('future_plannings');
   }
 };

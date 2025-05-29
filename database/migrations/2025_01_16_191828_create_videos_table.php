@@ -14,6 +14,7 @@ return new class extends Migration {
       $table->id();
       // basic information
       $table->string('title');
+      $table->string('name')->nullable();
       $table->string('language')->nullable();
       $table->json('subtitle_language')->nullable();
       $table->integer('duration')->nullable();

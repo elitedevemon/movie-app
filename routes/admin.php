@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\FuturePlanningController;
 use App\Http\Controllers\Admin\HelperController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\MenuController;
@@ -60,6 +61,12 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'throttle'])->name('admi
 
     // country
     Route::resource('countries', CountryController::class);
+
+    // future planning
+    Route::get('future-planning', [FuturePlanningController::class, 'index'])->name('future-planning.index');
+    Route::post('future-planning', [FuturePlanningController::class, 'store'])->name('future-planning.store');
+    Route::get('future-planning/show/{planning:id}', [FuturePlanningController::class, 'show'])->name('future-planning.show');
+    Route::delete('future-planning/{planning:id}', [FuturePlanningController::class, 'destroy'])->name('future-planning.destroy');
 
     // settings
     Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
