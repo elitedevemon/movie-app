@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
     SubMenu::factory()->count(5)->create();
     News::factory()->count(20)->create();
     Trailer::factory()->count(20)->create();
+    User::factory()->count(1)->create();
 
     // User::factory()->create([
     //   'name' => 'Test User',

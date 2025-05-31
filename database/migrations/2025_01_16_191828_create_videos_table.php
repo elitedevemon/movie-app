@@ -15,26 +15,20 @@ return new class extends Migration {
       // basic information
       $table->string('title');
       $table->string('name')->nullable();
-      $table->string('language')->nullable();
       $table->json('subtitle_language')->nullable();
       $table->integer('duration')->nullable();
       $table->date('release_date')->nullable();
       $table->string('trailer_url')->nullable();
-      $table->string('country')->nullable();
-      $table->string('age_restriction')->nullable();
       $table->enum('production_status', ['released', 'upcoming', 'post-production'])->default('released');
 
       // movie details
       $table->longText('imdb_description')->nullable();
       $table->string('director')->nullable();
       $table->string('writer')->nullable();
-      $table->json('actor')->nullable();
+      $table->string('actors')->nullable();
       $table->integer('imdb_rating')->nullable();
       $table->enum('type', ['action', 'adventure', 'comedy', 'crime', 'drama', 'fantasy', 'horror', 'mystery', 'romance', 'sci-fi', 'thriller', 'adult', 'anime'])->nullable();
       $table->json('category')->nullable();
-      $table->integer('budget')->nullable();
-      $table->integer('box_office_collection')->nullable();
-      $table->string('production_company')->nullable();
 
       // seo
       $table->string('slug')->unique();
@@ -48,11 +42,8 @@ return new class extends Migration {
 
       // media files
       $table->string('thumbnail')->nullable();
-      $table->string('background_poster')->nullable();
       $table->string('screenshot')->nullable();
-      $table->string('trailer')->nullable();
-      $table->json('subtitle_file')->nullable();
-      $table->enum('status', [true, false])->default(true);
+      $table->boolean('status')->default(true);
       $table->timestamps();
     });
   }

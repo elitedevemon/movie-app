@@ -19,7 +19,16 @@ class WelcomeController extends Controller
     $trailer = Trailer::whereStatus(true)->latest('updated_at')->first();
     $categories = Category::where('status', true)->orderByDesc('id')->get();
     $videos = Video::where('status', true)->where('production_status', 'released')->orderByDesc('id')->limit(10)->get();
-    return view("welcome", compact(["categories", 'newses', 'trailer', 'videos']));
+    $mostViewedVideos = PageView::with('video:id,title,slug,thumbnail')->orderByDesc('views')->limit(10)->get();
+    $topRatedVideos = Video::where('status', true)->where('production_status', 'released')->orderByDesc('imdb_rating')->limit(10)->get();
+    $trendingVideos = PageView::join('videos', 'page_views.video_id', '=', 'videos.id')
+      ->select('page_views.*', 'videos.title', 'videos.slug', 'videos.thumbnail', 'videos.imdb_rating')
+      ->orderByDesc('page_views.views')
+      ->orderByDesc('videos.imdb_rating')
+      ->limit(10)
+      ->get();
+    $upcomingVideos = Video::where('status', true)->where('production_status', 'upcoming')->orderByDesc('id')->limit(10)->get();
+    return view("welcome", compact(["categories", 'newses', 'trailer', 'videos', 'mostViewedVideos', 'topRatedVideos', 'trendingVideos', 'upcomingVideos']));
   }
 
 

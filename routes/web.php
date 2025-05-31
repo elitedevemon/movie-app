@@ -30,4 +30,4 @@ require __DIR__ . '/admin.php';
 require __DIR__ . '/visitor.php';
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
