@@ -34,20 +34,9 @@ class VideoController extends Controller
    */
   public function store(VideoStoreRequest $request)
   {
+    // return $request->all();
     $thumbnail = image_process($request->file('thumbnail'), 'uploads/images/thumbnail', 200, 270);
-    $backgroundPoster = image_process($request->file('background_poster'), 'uploads/images/background_poster', 300, 400);
     $screenshot = image_process($request->file('screenshot'), 'uploads/images/screenshot');
-    $trailer = file_process($request->file('trailer'), 'uploads/videos/trailer');
-    
-    // subtitle file
-    if ($request->hasFile('subtitle_file')) {
-      $subtitleFile = [];
-      foreach ($request->file('subtitle_file') as $file) {
-        $subtitleFile[] = file_process($file, 'uploads/files/subtitle');
-      }
-    } else {
-      $subtitleFile = null;
-    }
     
     $subtitleLanguage = json_encode(text_separate($request->subtitle_language, ','));
     $actor = json_encode(text_separate($request->actor, ','));
@@ -55,10 +44,12 @@ class VideoController extends Controller
     $keyword = json_encode(text_separate($request->keyword, ','));
     $downloadLink = json_encode($request->download_link);
 
+    $production_status = $request->production_status ? 'released' : 'upcoming';
+
     try {
       Video::create([
         'title' => $request->title,
-        'language' => $request->language,
+        'name' => $request->name,
         'release_date' => $request->release_date,
         'slug' => $request->slug,
         'meta_title' => $request->meta_title,
@@ -66,15 +57,10 @@ class VideoController extends Controller
         'short_description' => $request->short_description,
         'imdb_description' => $request->imdb_description,
         'trailer_url' => $request->trailer_url,
-        'country' => $request->country,
-        'age_restriction' => $request->age_restriction,
-        'production_status' => $request->production_status,
+        'production_status' => $production_status,
         'imdb_rating' => $request->imdb_rating,
         'duration' => $request->duration,
         'type' => $request->type,
-        'budget' => $request->budget,
-        'box_office_collection' => $request->box_office_collection,
-        'production_company' => $request->production_company,
         'director' => $request->director,
         'writer' => $request->writer,
         'actor' => $actor,
@@ -82,12 +68,9 @@ class VideoController extends Controller
         'keyword' => $keyword,
         'download_link' => $downloadLink,
         'thumbnail' => $thumbnail,
-        'background_poster' => $backgroundPoster,
         'screenshot' => $screenshot,
-        'trailer' => $trailer,
-        'subtitle_file' => $subtitleFile,
         'subtitle_language' => $subtitleLanguage,
-        'status' => (bool)($request->status ?? true),
+        'status' => (bool)($request->status ?? false),
       ]);
       return response()->json([
         'status' => true,
@@ -98,7 +81,7 @@ class VideoController extends Controller
       // throw $th;
       return response()->json([
         'status' => false,
-        'message' => __('Something went wrong!'),
+        'message' => __('Something went wrong!'. $th->getMessage()),
       ]);
     }
   }
